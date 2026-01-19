@@ -4,13 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>On Air Foundation | Propuesta Interactiva</title>
+  <title>On Air Foundation | Educación sin límites</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -23,7 +20,7 @@
 
   <!-- Navigation -->
   <nav class="sticky top-0 z-50 bg-stone-50/90 backdrop-blur-sm border-b border-stone-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-6">
       <div class="flex justify-between h-16 items-center">
 
         <div class="flex items-center gap-2 cursor-pointer" onclick="scrollToSection('hero')">
@@ -33,14 +30,11 @@
 
         <div class="hidden md:flex space-x-8">
           <button onclick="scrollToSection('origen')" class="nav-btn">Origen</button>
-          <button onclick="scrollToSection('pilares')" class="nav-btn">Pilares</button>
+          <button onclick="scrollToSection('mision')" class="nav-btn">Misión</button>
+          <button onclick="scrollToSection('educacion')" class="nav-btn">Educación</button>
           <button onclick="scrollToSection('modelo')" class="nav-btn">Modelo</button>
           <button onclick="scrollToSection('impacto')" class="nav-btn">Impacto</button>
         </div>
-
-        <button class="md:hidden text-stone-500" onclick="alert('Use la versión de escritorio para mejor experiencia')">
-          ☰
-        </button>
 
       </div>
     </div>
@@ -61,12 +55,12 @@
         </h1>
 
         <p class="text-lg text-stone-600 mb-8 max-w-lg">
-          On Air Foundation reduce la desigualdad educativa en la ruralidad de Entre Ríos, Argentina.
+          Reducimos la desigualdad educativa y digital en comunidades rurales de Entre Ríos, Argentina.
         </p>
 
         <div class="flex gap-4">
           <button onclick="scrollToSection('modelo')" class="primary-btn">
-            Ver Cómo Funciona
+            Cómo Funciona
           </button>
           <button onclick="scrollToSection('origen')" class="secondary-btn">
             Nuestra Historia
@@ -74,27 +68,105 @@
         </div>
       </div>
 
-      <!-- Abstract Map -->
+      <!-- Visual -->
       <div class="relative h-64 md:h-96 bg-stone-200 rounded-2xl shadow-inner overflow-hidden">
         <div class="absolute inset-0 dots-bg"></div>
-
-        <div class="map-node top-1/4 left-1/4 text-stone-700">
-          <div class="node"></div>
-          <span>Virginia, USA</span>
-        </div>
-
-        <div class="map-node bottom-1/4 right-1/4 text-teal-700">
-          <div class="node bg-teal-600"></div>
-          <span>Entre Ríos, ARG</span>
-        </div>
-
-        <div class="absolute top-[40%] left-[45%] bg-white p-3 rounded-full shadow-lg text-2xl">
-          📡
-        </div>
+        <div class="absolute top-[40%] left-[45%] bg-white p-3 rounded-full shadow-lg text-2xl">📡</div>
       </div>
 
     </div>
   </header>
+
+  <!-- ORIGEN -->
+  <section id="origen" class="py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="section-title">Nuestro Origen</h2>
+      <p class="section-text">
+        ON AIR Foundation nace a partir de experiencias personales en Colonia Federal, Entre Ríos,
+        donde la falta de infraestructura educativa evidenció cómo el lugar de nacimiento puede
+        limitar oportunidades.
+      </p>
+      <p class="section-text">
+        Desde Virginia, Estados Unidos, trabajamos para que niños y niñas de 6 a 12 años
+        accedan a herramientas educativas que les permitan desarrollarse sin barreras geográficas.
+      </p>
+    </div>
+  </section>
+
+  <!-- MISION -->
+  <section id="mision" class="py-24 bg-stone-50">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12 text-center">
+      <div>
+        <h3 class="card-title">Misión</h3>
+        <p>Empoderar comunidades rurales a través de educación tecnológica y bilingüe de calidad.</p>
+      </div>
+      <div>
+        <h3 class="card-title">Visión</h3>
+        <p>Un futuro donde la calidad educativa no dependa de la ubicación geográfica.</p>
+      </div>
+      <div>
+        <h3 class="card-title">Valores</h3>
+        <p>Equidad digital, inclusión y una perspectiva glocal.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCACION -->
+  <section id="educacion" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="section-title text-center">Nuestro Enfoque Educativo</h2>
+
+      <div class="grid md:grid-cols-2 gap-12 mt-12">
+        <div>
+          <h3 class="card-title">Alfabetización Digital</h3>
+          <p>
+            Introducimos el uso responsable de hardware, software e internet,
+            preparando a los estudiantes para el mundo académico y laboral del futuro.
+          </p>
+        </div>
+        <div>
+          <h3 class="card-title">Educación en Inglés</h3>
+          <p>
+            El inglés funciona como puente hacia el conocimiento global,
+            facilitando acceso a contenidos técnicos y colaboración internacional.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODELO -->
+  <section id="modelo" class="py-24 bg-stone-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="section-title text-center">Modelo de Implementación</h2>
+      <p class="section-text text-center max-w-3xl mx-auto">
+        Nuestro modelo combina infraestructura, capacitación docente y acompañamiento continuo.
+      </p>
+
+      <ul class="mt-12 grid md:grid-cols-2 gap-8 list-disc list-inside">
+        <li>Equipamiento tecnológico individual</li>
+        <li>Conectividad satelital de alta velocidad</li>
+        <li>Capacitación bimodal para docentes rurales</li>
+        <li>Tutorías internacionales mensuales</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- IMPACTO -->
+  <section id="impacto" class="py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="section-title">Impacto Social</h2>
+      <p class="section-text">
+        Buscamos un futuro sin límites educativos, donde cada niño y niña de Entre Ríos
+        pueda desarrollarse como ciudadano global.
+      </p>
+
+      <p class="mt-8 text-stone-600">
+        📍 Virginia, USA & Entre Ríos, Argentina<br>
+        ✉️ contacto@onairfoundation.org
+      </p>
+    </div>
+  </section>
 
   <!-- Scripts -->
   <script src="scripts.js"></script>
