@@ -1,18 +1,39 @@
+// ==============================
+// Smooth Scroll to Section
+// ==============================
 function scrollToSection(id) {
   const section = document.getElementById(id);
-  if (section) {
-    section.scrollIntoView({ behavior: 'smooth' });
-  }
-}
+  if (!section) return;
 
-function switchTab(tab) {
-  const tabs = ['digital', 'ingles', 'valores'];
-
-  tabs.forEach(t => {
-    document.getElementById(`content-${t}`)?.classList.add('hidden');
-    document.getElementById(`tab-${t}`)?.classList.remove('active-tab');
+  section.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
   });
-
-  document.getElementById(`content-${tab}`)?.classList.remove('hidden');
-  document.getElementById(`tab-${tab}`)?.classList.add('active-tab');
 }
+
+// ==============================
+// Scroll Spy (Active Navigation)
+// ==============================
+const sections = document.querySelectorAll('section[id], header[id]');
+const navButtons = document.querySelectorAll('.nav-btn');
+
+function onScroll() {
+  const scrollPosition = window.scrollY + 120; // offset for sticky nav
+
+  sections.forEach(section => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    const id = section.getAttribute('id');
+
+    if (scrollPosition >= top && scrollPosition < top + height) {
+      navButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('onclick')?.includes(id)) {
+          btn.classList.add('active');
+        }
+      });
+    }
+  });
+}
+
+window.addEventListener('scroll', onScroll);
