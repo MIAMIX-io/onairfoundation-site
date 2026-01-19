@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>On Air Foundation | Propuesta Interactiva</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="antialiased selection:bg-teal-100 selection:text-teal-900">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-stone-50/90 backdrop-blur-sm border-b border-stone-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+
+        <div class="flex items-center gap-2 cursor-pointer" onclick="scrollToSection('hero')">
+          <span class="text-2xl font-bold text-teal-700 tracking-tighter">ON AIR</span>
+          <span class="text-xs uppercase tracking-widest text-stone-500 hidden sm:block">Foundation</span>
+        </div>
+
+        <div class="hidden md:flex space-x-8">
+          <button onclick="scrollToSection('origen')" class="nav-btn">Origen</button>
+          <button onclick="scrollToSection('pilares')" class="nav-btn">Pilares</button>
+          <button onclick="scrollToSection('modelo')" class="nav-btn">Modelo</button>
+          <button onclick="scrollToSection('impacto')" class="nav-btn">Impacto</button>
+        </div>
+
+        <button class="md:hidden text-stone-500" onclick="alert('Use la versión de escritorio para mejor experiencia')">
+          ☰
+        </button>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="hero" class="bg-stone-100 py-24">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
+      <div class="fade-in">
+        <span class="inline-block px-3 py-1 mb-4 text-xs font-semibold text-teal-800 bg-teal-100 rounded-full">
+          Educación Rural
+        </span>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-stone-900 mb-6">
+          Conectando el Presente<br>
+          con el <span class="text-teal-600">Futuro</span>
+        </h1>
+
+        <p class="text-lg text-stone-600 mb-8 max-w-lg">
+          On Air Foundation reduce la desigualdad educativa en la ruralidad de Entre Ríos, Argentina.
+        </p>
+
+        <div class="flex gap-4">
+          <button onclick="scrollToSection('modelo')" class="primary-btn">
+            Ver Cómo Funciona
+          </button>
+          <button onclick="scrollToSection('origen')" class="secondary-btn">
+            Nuestra Historia
+          </button>
+        </div>
+      </div>
+
+      <!-- Abstract Map -->
+      <div class="relative h-64 md:h-96 bg-stone-200 rounded-2xl shadow-inner overflow-hidden">
+        <div class="absolute inset-0 dots-bg"></div>
+
+        <div class="map-node top-1/4 left-1/4 text-stone-700">
+          <div class="node"></div>
+          <span>Virginia, USA</span>
+        </div>
+
+        <div class="map-node bottom-1/4 right-1/4 text-teal-700">
+          <div class="node bg-teal-600"></div>
+          <span>Entre Ríos, ARG</span>
+        </div>
+
+        <div class="absolute top-[40%] left-[45%] bg-white p-3 rounded-full shadow-lg text-2xl">
+          📡
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Scripts -->
+  <script src="scripts.js"></script>
+</body>
+</html>
