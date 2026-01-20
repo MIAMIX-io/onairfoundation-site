@@ -19,29 +19,32 @@
 <body class="antialiased selection:bg-teal-100 selection:text-teal-900">
 
   <!-- Navigation -->
-  <nav class="sticky top-0 z-50 bg-stone-50/90 backdrop-blur-sm border-b border-stone-200 shadow-sm">
+  <nav class="sticky top-0 z-50 bg-stone-50/90 backdrop-blur-sm border-b border-stone-200">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="flex justify-between h-16 items-center">
+      <div class="flex h-16 items-center justify-between">
 
-        <div
-  class="flex items-center cursor-pointer"
-  onclick="scrollToSection('hero')"
->
-  <img
-  src="images/ON-AIR_PrimaryLogo_Black.png"
-  alt="ON AIR Foundation logo"
-  class="site-logo"
-  style="height: 28px;"
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center">
+          <img
+            src="images/ON-AIR_PrimaryLogo_Black.png"
+            alt="ON AIR Foundation"
+            class="site-logo"
+          />
+        </a>
 
-</div>
-
-        <div class="hidden md:flex space-x-8">
-          <button onclick="scrollToSection('origen')" class="nav-btn">Origen</button>
-          <button onclick="scrollToSection('mision')" class="nav-btn">Misión</button>
-          <button onclick="scrollToSection('educacion')" class="nav-btn">Educación</button>
-          <button onclick="scrollToSection('modelo')" class="nav-btn">Modelo</button>
-          <button onclick="scrollToSection('impacto')" class="nav-btn">Impacto</button>
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-10">
+          <a href="#origen" class="nav-btn">Origen</a>
+          <a href="#mision" class="nav-btn">Misión</a>
+          <a href="#educacion" class="nav-btn">Educación</a>
+          <a href="#modelo" class="nav-btn">Modelo</a>
+          <a href="#impacto" class="nav-btn">Impacto</a>
         </div>
+
+        <!-- Mobile Menu Placeholder -->
+        <button class="md:hidden text-stone-600 text-xl" aria-label="Abrir menú">
+          ☰
+        </button>
 
       </div>
     </div>
@@ -66,19 +69,17 @@
         </p>
 
         <div class="flex gap-4">
-          <button onclick="scrollToSection('modelo')" class="primary-btn">
-            Cómo Funciona
-          </button>
-          <button onclick="scrollToSection('origen')" class="secondary-btn">
-            Nuestra Historia
-          </button>
+          <a href="#modelo" class="primary-btn">Cómo Funciona</a>
+          <a href="#origen" class="secondary-btn">Nuestra Historia</a>
         </div>
       </div>
 
       <!-- Visual -->
       <div class="relative h-64 md:h-96 bg-stone-200 rounded-2xl shadow-inner overflow-hidden">
         <div class="absolute inset-0 dots-bg"></div>
-        <div class="absolute top-[40%] left-[45%] bg-white p-3 rounded-full shadow-lg text-2xl">📡</div>
+        <div class="absolute top-[40%] left-[45%] bg-white p-3 rounded-full shadow-lg text-2xl">
+          📡
+        </div>
       </div>
 
     </div>
@@ -177,5 +178,6 @@
 
   <!-- Scripts -->
   <script src="scripts.js"></script>
+
 </body>
 </html>
