@@ -220,7 +220,7 @@ a {
 }
 
 /* =========================
-   Origin Section Spacing
+   Origen Section Spacing
 ========================= */
 #origen .section-title {
   margin-bottom: 0.5rem;
@@ -248,9 +248,10 @@ a {
 }
 
 .mission-card {
-  background: white;
-  padding: 36px;
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(2px);
+  padding: 2.25rem 2.5rem;
+  border-radius: 1rem;
   text-align: center;
 }
 
