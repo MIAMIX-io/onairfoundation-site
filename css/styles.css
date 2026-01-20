@@ -22,11 +22,11 @@ a {
   color: inherit;
 }
 
-/* NAV */
+/* NAVIGATION */
 .site-nav {
   position: sticky;
   top: 0;
-  background: rgba(250,250,249,0.95);
+  background: rgba(250,250,249,0.96);
   border-bottom: 1px solid #e7e5e4;
   z-index: 100;
 }
@@ -42,7 +42,7 @@ a {
 }
 
 .logo img {
-  height: 26px;
+  height: 24px;
 }
 
 .nav-links {
@@ -59,12 +59,15 @@ a {
 /* HERO */
 .hero {
   background: url("../images/hero.JPG") center/cover no-repeat;
-  min-height: 90vh;
+  min-height: 85vh;
 }
 
 .hero-overlay {
-  background: rgba(0,0,0,0.45);
-  min-height: 90vh;
+  background: linear-gradient(
+    rgba(0,0,0,0.15),
+    rgba(0,0,0,0.25)
+  );
+  min-height: 85vh;
   display: flex;
   align-items: center;
 }
@@ -88,39 +91,16 @@ a {
 /* TAG */
 .tag {
   display: inline-block;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.2);
   padding: 6px 12px;
   border-radius: 999px;
   font-size: 12px;
   margin-bottom: 16px;
 }
 
-/* BUTTONS */
-.hero-buttons {
-  margin-top: 28px;
-}
-
-.btn {
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 500;
-  display: inline-block;
-  margin-right: 12px;
-}
-
-.primary {
-  background: #0f766e;
-  color: white;
-}
-
-.secondary {
-  border: 1px solid rgba(255,255,255,0.5);
-  color: white;
-}
-
 /* SECTIONS */
 .section {
-  padding: 104px 0;
+  padding: 96px 0;
 }
 
 .alt {
@@ -139,12 +119,12 @@ a {
 }
 
 .spaced {
-  margin-top: 24px;
+  margin-top: 28px;
 }
 
 .intro {
   max-width: 720px;
-  margin: 24px auto 48px;
+  margin: 24px auto 56px;
   text-align: center;
 }
 
@@ -172,16 +152,21 @@ a {
   padding: 36px;
   border-radius: 16px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-/* LIST */
-.list {
+/* EDUCATION MODEL */
+.edu-block h3 {
+  margin-bottom: 12px;
+}
+
+.implementation-list {
+  max-width: 600px;
+  margin: auto;
   padding-left: 20px;
   line-height: 2;
 }
 
-/* IMPACT SPLIT */
+/* SOCIAL IMPACT */
 .impact-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -190,7 +175,6 @@ a {
 
 .impact-text {
   padding: 96px 64px;
-  background: #fafaf9;
 }
 
 .impact-image {
