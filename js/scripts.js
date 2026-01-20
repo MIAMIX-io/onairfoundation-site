@@ -54,3 +54,11 @@ function closeMobileMenu() {
   document.getElementById('mobile-menu').classList.add('hidden');
   document.body.style.overflow = '';
 }
+// Subtle hero parallax
+window.addEventListener("scroll", () => {
+  const hero = document.querySelector(".hero");
+  if (!hero) return;
+
+  const offset = window.scrollY * 0.25;
+  hero.style.backgroundPosition = `center calc(65% + ${offset}px)`;
+});
