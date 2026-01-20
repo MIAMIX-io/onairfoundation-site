@@ -267,18 +267,18 @@ a {
   line-height: 2;
 }
 
-/* SOCIAL IMPACT */
-.impact-split {
+/* impacto */
+.impacto-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 520px;
 }
 
-.impact-text {
+.impacto-text {
   padding: 96px 64px;
 }
 
-.impact-image {
+.impacto-image {
   background: url("../images/girl-doll.jpeg") center/cover no-repeat;
 }
 
@@ -290,7 +290,7 @@ a {
 @media (max-width: 900px) {
   .grid-2,
   .grid-3,
-  .impact-split {
+  .impacto-split {
     grid-template-columns: 1fr;
   }
 
@@ -298,7 +298,7 @@ a {
     display: none;
   }
 
-  .impact-text {
+  .impacto-text {
     padding: 64px 24px;
   }
 }
