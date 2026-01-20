@@ -63,7 +63,7 @@ a {
   position: relative;
   background-image: url("../images/hero.JPG");
   background-size: cover;
-  background-position: center top;
+  background-position: center 65%;
   padding: 10rem 0 11rem;
 }
 
@@ -73,7 +73,7 @@ a {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.65),
     rgba(255, 255, 255, 0.35)
   );
   z-index: 1;
@@ -96,6 +96,10 @@ a {
 ========================= */
 .hero-text {
   max-width: 520px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(2px);
+  padding: 2.25rem 2.5rem;
+  border-radius: 1rem;
 }
 
 .hero-badge {
@@ -113,9 +117,9 @@ a {
 
 .hero-text h1 {
   font-family: 'Lora', serif;
-  font-size: 3rem;
-  line-height: 1.15;
-  color: #1c1917;
+  font-size: 3.1rem;
+  line-height: 1.12;
+  color: #111827;
   margin-bottom: 1.5rem;
 }
 
