@@ -16,7 +16,7 @@
   >
 
   <!-- Custom Styles -->
-<link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="antialiased selection:bg-teal-100 selection:text-teal-900">
@@ -44,50 +44,12 @@
           <a href="#impacto" class="nav-btn">Impacto</a>
         </div>
 
-        <!-- Mobile Menu Button -->
-        <button
-          class="md:hidden text-stone-600 text-2xl"
-          aria-label="Abrir menú"
-          onclick="openMobileMenu()"
-        >
-          ☰
-        </button>
-
       </div>
     </div>
   </nav>
 
-  <!-- Mobile Slide-Out Menu -->
-  <div
-    id="mobile-menu"
-    class="hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-sm"
-  >
-    <div class="absolute right-0 top-0 h-full w-72 bg-white shadow-xl p-6">
-
-      <div class="flex justify-between items-center mb-8">
-        <span class="text-lg font-semibold text-stone-800">Menú</span>
-        <button
-          class="text-2xl text-stone-600"
-          aria-label="Cerrar menú"
-          onclick="closeMobileMenu()"
-        >
-          ✕
-        </button>
-      </div>
-
-      <nav class="flex flex-col space-y-6">
-        <a href="#origen" class="nav-btn" onclick="scrollToSection('origen')">Origen</a>
-        <a href="#mision" class="nav-btn" onclick="scrollToSection('mision')">Misión</a>
-        <a href="#educacion" class="nav-btn" onclick="scrollToSection('educacion')">Educación</a>
-        <a href="#modelo" class="nav-btn" onclick="scrollToSection('modelo')">Modelo</a>
-        <a href="#impacto" class="nav-btn" onclick="scrollToSection('impacto')">Impacto</a>
-      </nav>
-
-    </div>
-  </div>
-
   <!-- Hero -->
-  <header id="hero" class="bg-stone-100 py-24">
+  <header id="hero" class="bg-stone-100">
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
       <div class="fade-in">
@@ -110,21 +72,20 @@
         </div>
       </div>
 
-     <!-- Visual -->
-<div class="relative h-64 md:h-96 rounded-2xl shadow-inner overflow-hidden">
-  <img
-    src="images/hero.JPG"
-    alt="Educación rural"
-    class="absolute inset-0 w-full h-full object-cover"
-  />
-  <div class="absolute inset-0 bg-black/10"></div>
-</div>
+      <!-- Hero Image -->
+      <div class="relative h-72 md:h-[420px] rounded-2xl overflow-hidden shadow-lg">
+        <img
+          src="images/hero.JPG"
+          alt="Educación rural"
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
 
     </div>
   </header>
 
   <!-- ORIGEN -->
-  <section id="origen" class="py-24 bg-white">
+  <section id="origen" class="bg-white">
     <div class="max-w-5xl mx-auto px-6 text-center">
       <h2 class="section-title">Nuestro Origen</h2>
       <p class="section-text">
@@ -137,41 +98,34 @@
         accedan a herramientas educativas que les permitan desarrollarse sin barreras geográficas.
       </p>
     </div>
+  </section>
+
+  <!-- MISION -->
   <section
-  id="mision"
-  class="py-24 bg-cover bg-center"
-  style="background-image: url('images/school-bell.jpg');"
->
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="grid md:grid-cols-3 gap-8 text-center">
-
-      <div class="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow">
-        <h3 class="card-title mb-4">Misión</h3>
-        <p>
-          Empoderar comunidades rurales a través de educación tecnológica y bilingüe de calidad.
-        </p>
+    id="mision"
+    class="bg-cover bg-center"
+    style="background-image: url('images/school-bell.jpg');"
+  >
+    <div class="bg-white/90">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12 text-center">
+        <div>
+          <h3 class="card-title">Misión</h3>
+          <p>Empoderar comunidades rurales a través de educación tecnológica y bilingüe de calidad.</p>
+        </div>
+        <div>
+          <h3 class="card-title">Visión</h3>
+          <p>Un futuro donde la calidad educativa no dependa de la ubicación geográfica.</p>
+        </div>
+        <div>
+          <h3 class="card-title">Valores</h3>
+          <p>Equidad digital, inclusión y una perspectiva glocal.</p>
+        </div>
       </div>
-
-      <div class="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow">
-        <h3 class="card-title mb-4">Visión</h3>
-        <p>
-          Un futuro donde la calidad educativa no dependa de la ubicación geográfica.
-        </p>
-      </div>
-
-      <div class="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow">
-        <h3 class="card-title mb-4">Valores</h3>
-        <p>
-          Equidad digital, inclusión y una perspectiva glocal.
-        </p>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- EDUCACION -->
-  <section id="educacion" class="py-24 bg-white">
+  <section id="educacion" class="bg-white">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="section-title text-center">Nuestro Enfoque Educativo</h2>
 
@@ -195,7 +149,7 @@
   </section>
 
   <!-- MODELO -->
-  <section id="modelo" class="py-24 bg-stone-50">
+  <section id="modelo" class="bg-stone-50">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="section-title text-center">Modelo de Implementación</h2>
       <p class="section-text text-center max-w-3xl mx-auto">
@@ -212,23 +166,32 @@
   </section>
 
   <!-- IMPACTO -->
-  <section id="impacto" class="py-24 bg-white">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h2 class="section-title">Impacto Social</h2>
-      <p class="section-text">
-        Buscamos un futuro sin límites educativos, donde cada niño y niña de Entre Ríos
-        pueda desarrollarse como ciudadano global.
-      </p>
+  <section id="impacto" class="bg-white">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
-      <p class="mt-8 text-stone-600">
-        📍 Virginia, USA & Entre Ríos, Argentina<br>
-        ✉️ contacto@onairfoundation.org
-      </p>
+      <div>
+        <h2 class="section-title">Impacto Social</h2>
+        <p class="section-text">
+          Buscamos un futuro sin límites educativos, donde cada niño y niña de Entre Ríos
+          pueda desarrollarse como ciudadano global.
+        </p>
+
+        <p class="mt-8 text-stone-600">
+          📍 Virginia, USA & Entre Ríos, Argentina<br>
+          ✉️ contacto@onairfoundation.org
+        </p>
+      </div>
+
+      <div class="relative h-80 md:h-[420px] rounded-2xl overflow-hidden shadow-lg">
+        <img
+          src="images/girl-doll.jpeg"
+          alt="Niña en entorno educativo"
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+
     </div>
   </section>
-
-  <!-- Scripts -->
-<script src="js/scripts.js"></script>
 
 </body>
 </html>
