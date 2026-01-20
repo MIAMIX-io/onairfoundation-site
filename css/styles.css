@@ -8,7 +8,7 @@ body {
   line-height: 1.65;
 }
 
-h1, h2, h3, .serif {
+h1, h2, h3 {
   font-family: 'Lora', serif;
 }
 
@@ -19,19 +19,24 @@ h1, h2, h3, .serif {
   color: #57534e;
   font-size: 0.875rem;
   font-weight: 500;
-  transition: color 0.2s ease, border-color 0.2s ease;
   padding-bottom: 2px;
   border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .nav-btn:hover {
   color: #0d9488;
 }
 
-/* Active state (JS-driven) */
-.nav-btn.active {
-  color: #0f766e;
-  border-bottom-color: #0f766e;
+/* =========================
+   Logo (HARD FIX — NO OVERRIDES)
+========================= */
+.site-logo {
+  height: 24px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  display: block;
 }
 
 /* =========================
@@ -39,38 +44,39 @@ h1, h2, h3, .serif {
 ========================= */
 .primary-btn {
   background-color: #0f766e;
-  color: white;
+  color: #ffffff;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   font-weight: 500;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.primary-btn:hover {
-  background-color: #115e59;
-  transform: translateY(-1px);
 }
 
 .secondary-btn {
-  background: white;
+  background-color: #ffffff;
   border: 1px solid #d6d3d1;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
-  transition: border-color 0.2s ease, transform 0.2s ease;
-}
-
-.secondary-btn:hover {
-  border-color: #0d9488;
-  transform: translateY(-1px);
 }
 
 /* =========================
-   Section Layout
+   Section Spacing (GLOBAL)
 ========================= */
-section {
-  scroll-margin-top: 96px; /* offset for sticky nav */
+section,
+header {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
 }
 
+@media (min-width: 768px) {
+  section,
+  header {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+  }
+}
+
+/* =========================
+   Section Text
+========================= */
 .section-title {
   font-size: 2rem;
   font-weight: 600;
@@ -91,7 +97,7 @@ section {
 }
 
 /* =========================
-   Cards / Subsections
+   Cards
 ========================= */
 .card-title {
   font-size: 1.25rem;
@@ -116,55 +122,4 @@ section {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* =========================
-   Map Visualization
-========================= */
-.dots-bg {
-  background-image: radial-gradient(#44403c 1px, transparent 1px);
-  background-size: 20px 20px;
-  opacity: 0.1;
-}
-
-.map-node {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.node {
-  width: 16px;
-  height: 16px;
-  background: #1c1917;
-  border-radius: 9999px;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.3);
-    opacity: 0.6;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* =========================
-   Logo (TAILWIND OVERRIDE SAFE)
-========================= */
-nav img.site-logo {
-  height: 26px !important;
-  width: auto !important;
-  max-width: 140px;
-  object-fit: contain;
 }
