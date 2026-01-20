@@ -6,192 +6,135 @@
 
   <title>On Air Foundation | Educación sin límites</title>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- Custom Styles -->
-<link rel="stylesheet" href="css/styles.css?v=4">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body class="antialiased selection:bg-teal-100 selection:text-teal-900">
+<body>
 
-  <!-- Navigation -->
-  <nav class="sticky top-0 z-50 bg-stone-50/90 backdrop-blur-sm border-b border-stone-200">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex h-16 items-center justify-between">
+<!-- NAVIGATION -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="#hero" class="logo">
+      <img src="images/ON-AIR_PrimaryLogo_Black.png" alt="ON AIR Foundation">
+    </a>
 
-        <!-- Logo -->
-        <a href="#hero" class="flex items-center">
-          <img
-            src="images/ON-AIR_PrimaryLogo_Black.png"
-            alt="ON AIR Foundation"
-            class="site-logo"
-          />
-        </a>
+    <ul class="nav-links">
+      <li><a href="#origen">Origen</a></li>
+      <li><a href="#mision">Misión</a></li>
+      <li><a href="#educacion">Educación</a></li>
+      <li><a href="#modelo">Modelo</a></li>
+      <li><a href="#impacto">Impacto</a></li>
+    </ul>
+  </div>
+</nav>
 
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-10">
-          <a href="#origen" class="nav-btn">Origen</a>
-          <a href="#mision" class="nav-btn">Misión</a>
-          <a href="#educacion" class="nav-btn">Educación</a>
-          <a href="#modelo" class="nav-btn">Modelo</a>
-          <a href="#impacto" class="nav-btn">Impacto</a>
-        </div>
+<!-- HERO -->
+<header id="hero" class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="tag">Educación Rural</span>
+      <h1>Conectando el Presente<br>con el <span>Futuro</span></h1>
+      <p>Reducimos la desigualdad educativa y digital en comunidades rurales de Entre Ríos, Argentina.</p>
 
+      <div class="hero-buttons">
+        <a href="#modelo" class="btn primary">Cómo Funciona</a>
+        <a href="#origen" class="btn secondary">Nuestra Historia</a>
       </div>
     </div>
-  </nav>
 
-  <!-- Hero -->
-  <header id="hero" class="bg-stone-100">
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-
-      <div class="fade-in">
-        <span class="inline-block px-3 py-1 mb-4 text-xs font-semibold text-teal-800 bg-teal-100 rounded-full">
-          Educación Rural
-        </span>
-
-        <h1 class="text-4xl md:text-5xl font-bold text-stone-900 mb-6">
-          Conectando el Presente<br>
-          con el <span class="text-teal-600">Futuro</span>
-        </h1>
-
-        <p class="text-lg text-stone-600 mb-8 max-w-lg">
-          Reducimos la desigualdad educativa y digital en comunidades rurales de Entre Ríos, Argentina.
-        </p>
-
-        <div class="flex gap-4">
-          <a href="#modelo" class="primary-btn">Cómo Funciona</a>
-          <a href="#origen" class="secondary-btn">Nuestra Historia</a>
-        </div>
-      </div>
-
-      <!-- Hero Image -->
-      <div class="relative h-72 md:h-[420px] rounded-2xl overflow-hidden shadow-lg">
-        <img
-          src="images/hero.JPG"
-          alt="Educación rural"
-          class="absolute inset-0 w-full h-full object-cover"
-        />
-      </div>
-
+    <div class="hero-image">
+      <img src="images/hero.JPG" alt="Educación rural">
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- ORIGEN -->
-  <section id="origen" class="bg-white">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h2 class="section-title">Nuestro Origen</h2>
-      <p class="section-text">
-        ON AIR Foundation nace a partir de experiencias personales en Colonia Federal, Entre Ríos,
-        donde la falta de infraestructura educativa evidenció cómo el lugar de nacimiento puede
-        limitar oportunidades.
-      </p>
-      <p class="section-text">
-        Desde Virginia, Estados Unidos, trabajamos para que niños y niñas de 6 a 12 años
-        accedan a herramientas educativas que les permitan desarrollarse sin barreras geográficas.
-      </p>
-    </div>
-  </section>
+<!-- ORIGEN -->
+<section id="origen" class="section">
+  <div class="container narrow">
+    <h2>Nuestro Origen</h2>
+    <p>
+      ON AIR Foundation nace a partir de experiencias personales en Colonia Federal, Entre Ríos,
+      donde la falta de infraestructura educativa evidenció cómo el lugar de nacimiento puede limitar oportunidades.
+    </p>
+    <p>
+      Desde Virginia, Estados Unidos, trabajamos para que niños y niñas de 6 a 12 años accedan
+      a herramientas educativas sin barreras geográficas.
+    </p>
+  </div>
+</section>
 
-  <!-- MISION -->
-  <section
-    id="mision"
-    class="bg-cover bg-center"
-    style="background-image: url('images/school-bell.jpg');"
-  >
-    <div class="bg-white/90">
-      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12 text-center">
-        <div>
-          <h3 class="card-title">Misión</h3>
-          <p>Empoderar comunidades rurales a través de educación tecnológica y bilingüe de calidad.</p>
-        </div>
-        <div>
-          <h3 class="card-title">Visión</h3>
-          <p>Un futuro donde la calidad educativa no dependa de la ubicación geográfica.</p>
-        </div>
-        <div>
-          <h3 class="card-title">Valores</h3>
-          <p>Equidad digital, inclusión y una perspectiva glocal.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCACION -->
-  <section id="educacion" class="bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="section-title text-center">Nuestro Enfoque Educativo</h2>
-
-      <div class="grid md:grid-cols-2 gap-12 mt-12">
-        <div>
-          <h3 class="card-title">Alfabetización Digital</h3>
-          <p>
-            Introducimos el uso responsable de hardware, software e internet,
-            preparando a los estudiantes para el mundo académico y laboral del futuro.
-          </p>
-        </div>
-        <div>
-          <h3 class="card-title">Educación en Inglés</h3>
-          <p>
-            El inglés funciona como puente hacia el conocimiento global,
-            facilitando acceso a contenidos técnicos y colaboración internacional.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MODELO -->
-  <section id="modelo" class="bg-stone-50">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="section-title text-center">Modelo de Implementación</h2>
-      <p class="section-text text-center max-w-3xl mx-auto">
-        Nuestro modelo combina infraestructura, capacitación docente y acompañamiento continuo.
-      </p>
-
-      <ul class="mt-12 grid md:grid-cols-2 gap-8 list-disc list-inside">
-        <li>Equipamiento tecnológico individual</li>
-        <li>Conectividad satelital de alta velocidad</li>
-        <li>Capacitación bimodal para docentes rurales</li>
-        <li>Tutorías internacionales mensuales</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- IMPACTO -->
-  <section id="impacto" class="bg-white">
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-
+<!-- MISION -->
+<section id="mision" class="section bg-image">
+  <div class="overlay">
+    <div class="container grid-3">
       <div>
-        <h2 class="section-title">Impacto Social</h2>
-        <p class="section-text">
-          Buscamos un futuro sin límites educativos, donde cada niño y niña de Entre Ríos
-          pueda desarrollarse como ciudadano global.
-        </p>
-
-        <p class="mt-8 text-stone-600">
-          📍 Virginia, USA & Entre Ríos, Argentina<br>
-          ✉️ contacto@onairfoundation.org
-        </p>
+        <h3>Misión</h3>
+        <p>Empoderar comunidades rurales a través de educación tecnológica y bilingüe de calidad.</p>
       </div>
-
-      <div class="relative h-80 md:h-[420px] rounded-2xl overflow-hidden shadow-lg">
-        <img
-          src="images/girl-doll.jpeg"
-          alt="Niña en entorno educativo"
-          class="absolute inset-0 w-full h-full object-cover"
-        />
+      <div>
+        <h3>Visión</h3>
+        <p>Un futuro donde la calidad educativa no dependa de la ubicación geográfica.</p>
       </div>
-
+      <div>
+        <h3>Valores</h3>
+        <p>Equidad digital, inclusión y una perspectiva glocal.</p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- EDUCACION -->
+<section id="educacion" class="section">
+  <div class="container">
+    <h2>Nuestro Enfoque Educativo</h2>
+
+    <div class="grid-2">
+      <div>
+        <h3>Alfabetización Digital</h3>
+        <p>Uso responsable de tecnología para preparar a los estudiantes para el futuro académico y laboral.</p>
+      </div>
+      <div>
+        <h3>Educación en Inglés</h3>
+        <p>El inglés como puente hacia el conocimiento global y la colaboración internacional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODELO -->
+<section id="modelo" class="section alt">
+  <div class="container">
+    <h2>Modelo de Implementación</h2>
+    <ul class="list">
+      <li>Equipamiento tecnológico individual</li>
+      <li>Conectividad satelital de alta velocidad</li>
+      <li>Capacitación docente bimodal</li>
+      <li>Tutorías internacionales mensuales</li>
+    </ul>
+  </div>
+</section>
+
+<!-- IMPACTO -->
+<section id="impacto" class="section">
+  <div class="container grid-2 align-center">
+    <div>
+      <h2>Impacto Social</h2>
+      <p>Buscamos un futuro sin límites educativos para cada niño y niña de Entre Ríos.</p>
+      <p class="contact">
+        Virginia, USA & Entre Ríos, Argentina<br>
+        info@onairfoundation.com
+      </p>
+    </div>
+
+    <div class="image-box">
+      <img src="images/girl-doll.jpeg" alt="Impacto social">
+    </div>
+  </div>
+</section>
 
 </body>
 </html>
