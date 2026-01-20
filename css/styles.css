@@ -64,7 +64,8 @@ a {
   background-image: url("../images/hero.JPG");
   background-size: cover;
   background-position: center 65%;
-  padding: 10rem 0 11rem;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
 }
 
 /* Light, premium overlay */
@@ -231,6 +232,10 @@ a {
 
 #origen .section-text:first-of-type {
   margin-top: 0.5rem;
+}
+
+#origen {
+  padding-top: 3.5rem; /* tight but breathable */
 }
 
 /* MISSION */
