@@ -1,6 +1,6 @@
-// ==============================
-// Smooth Scroll to Section
-// ==============================
+/* =========================
+   Smooth Scroll Enhancement
+========================= */
 function scrollToSection(id) {
   const section = document.getElementById(id);
   if (!section) return;
@@ -9,31 +9,48 @@ function scrollToSection(id) {
     behavior: 'smooth',
     block: 'start'
   });
+
+  closeMobileMenu();
 }
 
-// ==============================
-// Scroll Spy (Active Navigation)
-// ==============================
-const sections = document.querySelectorAll('section[id], header[id]');
-const navButtons = document.querySelectorAll('.nav-btn');
+/* =========================
+   Active Nav Highlight
+========================= */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-btn');
 
-function onScroll() {
-  const scrollPosition = window.scrollY + 120; // offset for sticky nav
+function setActiveNav() {
+  let currentSection = '';
 
   sections.forEach(section => {
-    const top = section.offsetTop;
-    const height = section.offsetHeight;
-    const id = section.getAttribute('id');
+    const sectionTop = section.offsetTop - 120;
+    const sectionHeight = section.offsetHeight;
 
-    if (scrollPosition >= top && scrollPosition < top + height) {
-      navButtons.forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.getAttribute('onclick')?.includes(id)) {
-          btn.classList.add('active');
-        }
-      });
+    if (window.scrollY >= sectionTop &&
+        window.scrollY < sectionTop + sectionHeight) {
+      currentSection = section.id;
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${currentSection}`) {
+      link.classList.add('active');
     }
   });
 }
 
-window.addEventListener('scroll', onScroll);
+window.addEventListener('scroll', setActiveNav);
+
+/* =========================
+   Mobile Menu
+========================= */
+function openMobileMenu() {
+  document.getElementById('mobile-menu').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobileMenu() {
+  document.getElementById('mobile-menu').classList.add('hidden');
+  document.body.style.overflow = '';
+}
