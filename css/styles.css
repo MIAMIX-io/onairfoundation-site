@@ -297,3 +297,10 @@ a {
     padding: 64px 24px;
   }
 }
+/* =========================
+   FIX: Origin spacing
+========================= */
+#origen.section {
+  padding-top: 48px;   /* was 96px */
+  padding-bottom: 96px;
+}
