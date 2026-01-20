@@ -172,8 +172,9 @@ a {
 }
 
 /* SECTIONS */
-.section {
-  padding: 48px 0;
+#origen {
+  padding-top: 32px;
+  padding-bottom: 96px;
 }
 
 .alt {
