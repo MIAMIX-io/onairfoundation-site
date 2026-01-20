@@ -1,64 +1,81 @@
-/* =========================
-   Smooth Scroll Enhancement
-========================= */
-function scrollToSection(id) {
-  const section = document.getElementById(id);
-  if (!section) return;
+document.addEventListener("DOMContentLoaded", () => {
 
-  section.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start'
-  });
+  /* =========================
+     Smooth Scroll Enhancement
+  ========================= */
+  window.scrollToSection = function (id) {
+    const section = document.getElementById(id);
+    if (!section) return;
 
-  closeMobileMenu();
-}
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
 
-/* =========================
-   Active Nav Highlight
-========================= */
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-btn');
+    closeMobileMenu();
+  };
 
-function setActiveNav() {
-  let currentSection = '';
+  /* =========================
+     Active Nav Highlight
+  ========================= */
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-btn");
 
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
-    const sectionHeight = section.offsetHeight;
+  function setActiveNav() {
+    let currentSection = "";
 
-    if (window.scrollY >= sectionTop &&
-        window.scrollY < sectionTop + sectionHeight) {
-      currentSection = section.id;
-    }
-  });
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 140;
+      const sectionHeight = section.offsetHeight;
 
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${currentSection}`) {
-      link.classList.add('active');
-    }
-  });
-}
+      if (
+        window.scrollY >= sectionTop &&
+        window.scrollY < sectionTop + sectionHeight
+      ) {
+        currentSection = section.id;
+      }
+    });
 
-window.addEventListener('scroll', setActiveNav);
+    navLinks.forEach(link => {
+      link.classList.remove("active");
 
-/* =========================
-   Mobile Menu
-========================= */
-function openMobileMenu() {
-  document.getElementById('mobile-menu').classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
-}
+      const href = link.getAttribute("href");
+      if (href && href === `#${currentSection}`) {
+        link.classList.add("active");
+      }
+    });
+  }
 
-function closeMobileMenu() {
-  document.getElementById('mobile-menu').classList.add('hidden');
-  document.body.style.overflow = '';
-}
-// Subtle hero parallax
-window.addEventListener("scroll", () => {
+  window.addEventListener("scroll", setActiveNav);
+
+  /* =========================
+     Mobile Menu
+  ========================= */
+  window.openMobileMenu = function () {
+    const menu = document.getElementById("mobile-menu");
+    if (!menu) return;
+
+    menu.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  };
+
+  window.closeMobileMenu = function () {
+    const menu = document.getElementById("mobile-menu");
+    if (!menu) return;
+
+    menu.classList.add("hidden");
+    document.body.style.overflow = "";
+  };
+
+  /* =========================
+     Hero Parallax
+  ========================= */
   const hero = document.querySelector(".hero");
-  if (!hero) return;
+  if (hero) {
+    window.addEventListener("scroll", () => {
+      const offset = window.scrollY * 0.25;
+      hero.style.backgroundPosition = `center calc(65% + ${offset}px)`;
+    });
+  }
 
-  const offset = window.scrollY * 0.25;
-  hero.style.backgroundPosition = `center calc(65% + ${offset}px)`;
 });
