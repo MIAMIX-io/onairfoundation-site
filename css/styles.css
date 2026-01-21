@@ -443,3 +443,29 @@ a {
     justify-content: center;
   }
 }
+/* =========================
+   iPad & Tablet Fixes
+========================= */
+/* Targets devices larger than mobile but smaller than desktop monitors */
+@media (min-width: 769px) and (max-width: 1366px) {
+  
+  /* 1. Disable Parallax 
+     (Fixes the "too zoomed in" issue on iOS) */
+  .parallax {
+    background-attachment: scroll;
+    background-size: cover;
+  }
+
+  /* 2. Hero Adjustment 
+     (Center it for better vertical balance on tablet portrait mode) */
+  .hero {
+    background-position: center center;
+  }
+
+  /* 3. Impacto (Girl) Adjustment 
+     (On tablet, 'right bottom' can sometimes hide the girl behind the text card.
+      '80% center' keeps her visible on the right side.) */
+  .impacto-hero {
+    background-position: 80% center;
+  }
+}
