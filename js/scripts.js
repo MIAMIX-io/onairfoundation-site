@@ -3,10 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      Active Nav Highlight
   ========================= */
-  const sections = document.querySelectorAll("section[id]");
-  
-  // FIX: Changed selector from ".nav-btn" to ".nav-links a" to match your HTML
-  const navLinks = document.querySelectorAll(".nav-links a"); 
+  const sections = document.querySelectorAll("section[id], header[id]");
+  const navLinks = document.querySelectorAll(".nav-links a");
 
   function setActiveNav() {
     let currentSection = "";
@@ -38,21 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", setActiveNav);
 
   /* =========================
-     Hero Parallax
-  ========================= */
-  const hero = document.querySelector(".hero");
-  if (hero) {
-    window.addEventListener("scroll", () => {
-      const offset = window.scrollY * 0.25;
-      hero.style.backgroundPosition = `center calc(65% + ${offset}px)`;
-    });
-  }
-
-  /* =========================
      Mobile Menu (Placeholder)
-     Note: Your current HTML does not have a mobile menu (#mobile-menu) 
-     or toggle buttons. These functions are kept safe but won't trigger 
-     until you add the mobile menu HTML.
   ========================= */
   window.openMobileMenu = function () {
     const menu = document.getElementById("mobile-menu");
@@ -70,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "";
   };
 
-  // Optional: Smooth scroll for generic links if CSS scroll-behavior isn't enough
+  // Smooth scroll for anchors
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
@@ -82,8 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
           behavior: 'smooth',
           block: 'start'
         });
-        
-        // Close mobile menu if open
         window.closeMobileMenu();
       }
     });
