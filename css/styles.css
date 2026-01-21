@@ -380,7 +380,7 @@ a {
 .footer-logos {
   display: flex;
   gap: 32px;
-  align-items: center;
+  align-items: right;
 }
 
 .footer-logos img {
