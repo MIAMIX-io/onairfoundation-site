@@ -54,6 +54,12 @@ a {
 .nav-links a {
   font-size: 14px;
   font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #0f766e;
 }
 
 /* =========================
@@ -140,6 +146,36 @@ a {
   gap: 1rem;
 }
 
+/* Added basic styles for buttons referenced in HTML */
+.primary-btn {
+  background-color: #0f766e;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.2s;
+}
+
+.primary-btn:hover {
+  background-color: #0d5f58;
+}
+
+.secondary-btn {
+  background-color: transparent;
+  color: #0f766e;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid #0f766e;
+  transition: background-color 0.2s;
+}
+
+.secondary-btn:hover {
+  background-color: rgba(15, 118, 110, 0.05);
+}
+
 /* Spacer column */
 .hero-spacer {
   min-height: 200px;
@@ -161,7 +197,8 @@ a {
     max-width: 100%;
   }
 }
-/* TAG */
+
+/* TAG (Utility) */
 .tag {
   display: inline-block;
   background: rgba(255,255,255,0.2);
@@ -239,17 +276,19 @@ a {
 }
 
 #origen {
-  padding-top: 3.5rem; /* tight but breathable */
+  padding-top: 3.5rem; 
+  padding-bottom: 6rem;
 }
 
 /* MISSION */
 .mission {
   background: url("../images/school-bell.jpg") center/cover no-repeat;
+  padding: 96px 0;
 }
 
 .mission-card {
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(2px);
+  background: rgba(255, 255, 255, 0.85); /* Increased opacity for readability */
+  backdrop-filter: blur(4px);
   padding: 2.25rem 2.5rem;
   border-radius: 1rem;
   text-align: center;
@@ -267,23 +306,24 @@ a {
   line-height: 2;
 }
 
-/* impacto */
+/* IMPACTO */
 .impacto-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 520px;
+  background: white;
 }
 
 .impacto-text {
   padding: 96px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .impacto-image {
   background: url("../images/girl-doll.jpeg") center/cover no-repeat;
-}
-
-.contact {
-  margin-top: 32px;
+  min-height: 300px;
 }
 
 /* RESPONSIVE */
@@ -295,13 +335,15 @@ a {
   }
 
   .nav-links {
-    display: none;
+    /* Consider adding a mobile menu implementation later */
+    display: none; 
   }
 
   .impacto-text {
     padding: 64px 24px;
   }
 }
+
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -353,6 +395,7 @@ a {
   max-height: 48px;
   width: auto;
   opacity: 0.85;
+  transition: opacity 0.2s;
 }
 
 .footer-logos img:hover {
