@@ -336,6 +336,36 @@ a {
     display: none; 
   }
 }
+/* =========================
+   Mobile Background Fixes
+========================= */
+@media (max-width: 768px) {
+  /* 1. Disable Parallax on Mobile 
+     (Prevents the "extreme zoom" effect caused by fixed backgrounds) */
+  .parallax {
+    background-attachment: scroll; 
+  }
+
+  /* 2. Hero Adjustment */
+  .hero {
+    /* Pull focus slightly lower to see more context */
+    background-position: center 20%; 
+  }
+
+  /* 3. Mission Adjustment */
+  .mission {
+    background-position: center center;
+  }
+
+  /* 4. Impacto (Girl) Adjustment */
+  .impacto-hero {
+    /* "cover" on mobile usually crops the sides heavily. 
+       We pin it to the 'right' to keep the girl visible, 
+       and 'center' vertically.
+    */
+    background-position: 75% center; 
+  }
+}
 
 /* =========================
    FOOTER
