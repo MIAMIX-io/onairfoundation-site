@@ -301,6 +301,14 @@ a {
 .impacto-hero {
   position: relative;
   background-image: url("../images/girl-doll.jpeg");
+  
+  /* Horizontal: right (Focuses on the girl on the right side)
+     Vertical: bottom (Focuses on the lower part of the image)
+     
+     Note: Since this section uses the .parallax class, 
+     this position is relative to the browser window.
+  */
+  background-position: right bottom;
 }
 
 .impacto-hero .container {
@@ -313,6 +321,8 @@ a {
 .glass-card {
   max-width: 600px;
   width: 100%;
+  /* 40% Opacity as requested previously */
+  background: rgba(255, 255, 255, 0.4);
 }
 
 /* RESPONSIVE */
