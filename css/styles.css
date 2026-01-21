@@ -27,6 +27,14 @@ a {
   text-align: center;
 }
 
+/* PARALLAX UTILITY */
+.parallax {
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 /* NAVIGATION */
 .site-nav {
   position: sticky;
@@ -73,9 +81,6 @@ a {
 .hero {
   position: relative;
   background-image: url("../images/hero.JPG");
-  background-size: cover;
-  background-position: center 65%;
-  /* Increased padding for hero */
   padding-top: 8rem;
   padding-bottom: 6rem;
 }
@@ -108,19 +113,17 @@ a {
 /* =========================
    Hero Text / Glass Cards
 ========================= */
-/* Shared glassmorphism style for Hero text, Mission cards, and Impacto text */
 .hero-text,
 .mission-card,
 .glass-card,
 .grid-2 {
   background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(8px); /* Increased blur for better readability */
+  backdrop-filter: blur(8px);
   padding: 2.5rem 2.5rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* Added subtle shadow for depth */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
-/* Specific Hero Adjustments */
 .hero-text {
   max-width: 520px;
 }
@@ -213,9 +216,9 @@ a {
   }
 }
 
-/* SECTIONS (Padding Increased) */
+/* SECTIONS */
 .section {
-  padding: 120px 0; /* Increased from 96px for more breathing room */
+  padding: 120px 0;
 }
 
 .alt {
@@ -264,17 +267,15 @@ a {
 }
 
 #origen {
-  /* Slightly tighter top to separate from hero, but spacious bottom */
   padding-top: 6rem; 
   padding-bottom: 8rem;
 }
 
 /* MISSION (Background Section) */
 .mission {
-  background: url("../images/school-bell.jpg") center/cover no-repeat;
+  background-image: url("../images/school-bell.jpg");
   position: relative;
 }
-/* Ensure mission card content is above any potential overlays */
 .mission .container {
   position: relative;
   z-index: 2;
@@ -296,14 +297,10 @@ a {
   line-height: 2;
 }
 
-/* =========================
-   IMPACTO (New Background Section)
-========================= */
+/* IMPACTO (Background Section) */
 .impacto-hero {
   position: relative;
   background-image: url("../images/girl-doll.jpeg");
-  background-size: cover;
-  background-position: center 40%; /* Adjusted to show face if possible */
 }
 
 .impacto-hero .container {
@@ -313,7 +310,6 @@ a {
   justify-content: center;
 }
 
-/* Glass card specific for Impacto to constrain width */
 .glass-card {
   max-width: 600px;
   width: 100%;
@@ -371,7 +367,6 @@ a {
   line-height: 1.6;
 }
 
-/* Logos */
 .footer-logos {
   display: flex;
   gap: 32px;
@@ -389,7 +384,6 @@ a {
   opacity: 1;
 }
 
-/* Bottom bar */
 .footer-bottom {
   margin-top: 40px;
   padding-top: 16px;
@@ -399,7 +393,6 @@ a {
   color: #78716c;
 }
 
-/* Responsive Footer */
 @media (max-width: 768px) {
   .footer-inner {
     grid-template-columns: 1fr;
