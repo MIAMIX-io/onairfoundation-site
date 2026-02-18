@@ -3,204 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campaign | On Air Foundation</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Campaign Launch | On Air Foundation</title>
     
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap');
-        
-        body { font-family: 'Inter', sans-serif; }
-
-        @keyframes blob {
-            0% { transform: scale(1); }
-            33% { transform: scale(1.1) translate(10px, -10px); }
-            66% { transform: scale(0.9) translate(-10px, 10px); }
-            100% { transform: scale(1); }
-        }
-        .animate-blob { animation: blob 7s infinite; }
-        .animation-delay-2000 { animation-delay: 2s; }
-        
-        .animate-bounce-slow {
-            animation: bounce 3s infinite;
-        }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8,0,1,1); }
-            50% { transform: none; animation-timing-function: cubic-bezier(0,0,0.2,1); }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="min-h-screen text-stone-800 bg-[#fefce8]">
+<body class="campaign-page">
 
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-5">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <div class="bg-lime-800 p-2 rounded-lg shadow-lg">
-                    <i data-lucide="radio" class="text-white w-6 h-6"></i>
+    <nav id="navbar" class="campaign-nav">
+        <div class="container flex-between">
+            <div class="flex-center gap-2">
+                <div class="nav-icon-box">
+                    <i data-lucide="radio" class="w-6 h-6"></i>
                 </div>
-                <span id="nav-logo" class="text-xl font-bold tracking-tighter text-white">
-                    ON AIR <span class="font-light">FOUNDATION</span>
-                </span>
+                <a href="index.html" class="campaign-nav-logo">
+                    ON AIR <span>FOUNDATION</span>
+                </a>
             </div>
 
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#" class="nav-link font-medium text-white hover:text-amber-500 transition-colors">The Mission</a>
-                <a href="#" class="nav-link font-medium text-white hover:text-amber-500 transition-colors">Impact</a>
-                <a href="#" class="nav-link font-medium text-white hover:text-amber-500 transition-colors">Partners</a>
-                <button class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg">
-                    Donate Now
-                </button>
+            <div class="hidden md:flex flex-center campaign-nav-links">
+                <a href="index.html">Main Website</a>
+                <a href="#mission">The Mission</a>
+                <a href="https://www.miamix.io/donations" class="btn-campaign btn-campaign-amber" style="padding: 0.5rem 1.5rem; margin-left: 2rem; font-size: 0.95rem;">
+                    Support Cause
+                </a>
             </div>
-
-            <button class="md:hidden text-white" id="menu-btn">
-                <i data-lucide="menu" id="menu-icon"></i>
-            </button>
-        </div>
-
-        <div id="mobile-menu" class="hidden bg-white absolute top-full left-0 w-full shadow-xl border-t border-stone-100 p-6 space-y-4">
-            <a href="#" class="block text-lg font-medium text-stone-700">The Mission</a>
-            <a href="#" class="block text-lg font-medium text-stone-700">Impact</a>
-            <a href="#" class="block text-lg font-medium text-stone-700">Partners</a>
-            <button class="w-full bg-amber-500 text-white py-3 rounded-xl font-bold">Donate Now</button>
         </div>
     </nav>
 
-    <section class="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-gradient-to-r from-lime-900/80 to-transparent z-10"></div>
-            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000" alt="Entre Ríos Landscape" class="w-full h-full object-cover">
+    <section class="campaign-hero">
+        <div class="campaign-hero-bg">
+            <img src="images/hero.JPG" alt="Entre Ríos Landscape">
         </div>
+        <div class="campaign-hero-overlay"></div>
 
-        <div class="container mx-auto px-6 relative z-20">
-            <div class="max-w-3xl text-white">
-                <div class="inline-flex items-center space-x-2 bg-amber-500/20 backdrop-blur-md border border-amber-500/30 px-4 py-1 rounded-full mb-6">
-                    <span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
-                    <span class="text-amber-300 text-sm font-bold tracking-widest uppercase">Campaign Launch</span>
-                </div>
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-                    We Are <span class="text-amber-400">On Air</span><br>
-                    <span class="text-white/90">Connecting the First Futures</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-stone-200 mb-8 max-w-2xl leading-relaxed">
-                    Technology is not a luxury — it is a right. We are delivering the tools to turn dreams into reality.
-                </p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button class="bg-amber-500 hover:bg-amber-600 text-white text-lg font-bold px-8 py-4 rounded-xl transition-all shadow-xl flex items-center justify-center">
-                        Learn About the Campaign <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
-                    </button>
-                    <button class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white text-lg font-bold px-8 py-4 rounded-xl transition-all">
-                        Join the Cause
-                    </button>
-                </div>
+        <div class="container campaign-hero-content">
+            <div class="launch-badge">
+                <span class="launch-dot"></span>
+                <span>Live Activation</span>
+            </div>
+            
+            <h1 class="campaign-hero-title">
+                We Are <span class="highlight">On Air</span><br>
+                <span class="sub-highlight">Connecting the First Futures</span>
+            </h1>
+            
+            <p class="campaign-hero-desc">
+                Technology is not a luxury — it is a right. We are delivering the tools to turn dreams into reality across Entre Ríos, Argentina.
+            </p>
+            
+            <div class="flex-center gap-4" style="justify-content: flex-start; flex-wrap: wrap;">
+                <a href="#mission" class="btn-campaign btn-campaign-amber">
+                    Explore the Mission <i data-lucide="arrow-right" style="margin-left: 0.5rem; width: 20px;"></i>
+                </a>
+                <a href="index.html" class="btn-campaign btn-campaign-glass">
+                    Return to Foundation
+                </a>
             </div>
         </div>
 
-        <div class="absolute bottom-10 right-10 hidden lg:block animate-bounce-slow">
-            <div class="bg-white/10 backdrop-blur-lg p-6 rounded-3xl border border-white/20 shadow-2xl">
-                <div class="flex items-center space-x-4 text-white">
-                    <div class="bg-sky-500 p-3 rounded-2xl">
-                        <i data-lucide="globe" class="w-6 h-6"></i>
-                    </div>
-                    <div>
-                        <p class="text-sm font-bold uppercase tracking-tighter text-sky-300">Next Stop</p>
-                        <p class="text-lg font-bold">Entre Ríos, Argentina</p>
-                    </div>
+        <div class="floating-location">
+            <div class="flex-center gap-4">
+                <div class="loc-icon-box">
+                    <i data-lucide="globe"></i>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-4xl font-black text-lime-900 mb-4">The Mission</h2>
-                <p class="text-stone-500 text-lg italic">Every device represents a door opening to possibility.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="group bg-stone-50 p-8 rounded-[2rem] border-b-4 border-amber-500 hover:shadow-2xl transition-all hover:-translate-y-2">
-                    <div class="bg-amber-100 text-amber-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
-                        <i data-lucide="laptop" class="w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-4xl font-black text-stone-800 mb-2">50+</h3>
-                    <p class="text-stone-600 font-medium">High-performance computers for students</p>
-                </div>
-
-                <div class="group bg-stone-50 p-8 rounded-[2rem] border-b-4 border-sky-500 hover:shadow-2xl transition-all hover:-translate-y-2">
-                    <div class="bg-sky-100 text-sky-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
-                        <i data-lucide="tablet" class="w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-4xl font-black text-stone-800 mb-2">30+</h3>
-                    <p class="text-stone-600 font-medium">Tablets for educational centers</p>
-                </div>
-
-                <div class="group bg-stone-50 p-8 rounded-[2rem] border-b-4 border-lime-600 hover:shadow-2xl transition-all hover:-translate-y-2">
-                    <div class="bg-lime-100 text-lime-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
-                        <i data-lucide="smartphone" class="w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-4xl font-black text-stone-800 mb-2">20+</h3>
-                    <p class="text-stone-600 font-medium">Smartphones for local entrepreneurs</p>
-                </div>
-
-                <div class="bg-lime-900 p-8 rounded-[2rem] shadow-xl text-white hover:-translate-y-2 transition-all">
-                    <div class="bg-white/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
-                        <i data-lucide="globe" class="w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-3xl font-black mb-2">Goal</h3>
-                    <p class="text-lime-100 font-medium">Close the digital divide across Entre Ríos</p>
+                <div class="loc-text">
+                    <p>Activation Point</p>
+                    <p>Entre Ríos, Argentina</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-16 bg-stone-900 text-stone-400 border-t border-stone-800">
-        <div class="container mx-auto px-6 text-center">
-            <p>© 2024 On Air Foundation. All rights reserved.</p>
+    <section id="mission" class="campaign-mission-sec">
+        <div class="container">
+            <div class="campaign-sec-header">
+                <h2>The Mission Target</h2>
+                <p>Every device represents a door opening to possibility.</p>
+            </div>
+
+            <div class="stat-grid-4">
+                <div class="stat-card">
+                    <div class="stat-icon amber">
+                        <i data-lucide="laptop"></i>
+                    </div>
+                    <h3>50+</h3>
+                    <p>High-performance computers for students</p>
+                </div>
+
+                <div class="stat-card sky">
+                    <div class="stat-icon sky">
+                        <i data-lucide="tablet"></i>
+                    </div>
+                    <h3>30+</h3>
+                    <p>Tablets for educational centers</p>
+                </div>
+
+                <div class="stat-card lime">
+                    <div class="stat-icon lime">
+                        <i data-lucide="smartphone"></i>
+                    </div>
+                    <h3>20+</h3>
+                    <p>Smartphones for local entrepreneurs</p>
+                </div>
+
+                <div class="stat-card dark">
+                    <div class="stat-icon glass">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <h3>Goal</h3>
+                    <p>Close the digital divide across Entre Ríos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="campaign-footer">
+        <div class="container">
+            <p>© 2026 On Air Foundation. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Initialize Icons
         lucide.createIcons();
 
-        // Navbar Scroll Effect
         const navbar = document.getElementById('navbar');
-        const navLogo = document.getElementById('nav-logo');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const menuBtn = document.getElementById('menu-btn');
-
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-3');
-                navbar.classList.remove('bg-transparent', 'py-5');
-                navLogo.classList.add('text-lime-900');
-                navLogo.classList.remove('text-white');
-                menuBtn.classList.add('text-lime-900');
-                menuBtn.classList.remove('text-white');
-                navLinks.forEach(link => {
-                    link.classList.add('text-stone-600');
-                    link.classList.remove('text-white');
-                });
+                navbar.classList.add('scrolled');
             } else {
-                navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-3');
-                navbar.classList.add('bg-transparent', 'py-5');
-                navLogo.classList.remove('text-lime-900');
-                navLogo.classList.add('text-white');
-                menuBtn.classList.remove('text-lime-900');
-                menuBtn.classList.add('text-white');
-                navLinks.forEach(link => {
-                    link.classList.remove('text-stone-600');
-                    link.classList.add('text-white');
-                });
+                navbar.classList.remove('scrolled');
             }
-        });
-
-        // Mobile Menu Toggle
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
         });
     </script>
 </body>
