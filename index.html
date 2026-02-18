@@ -1,183 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign | On Air Foundation</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
 
-  <title>On Air Foundation | Educación Sin Límites</title>
-  
-  <link rel="icon" href="images/ON-AIR_PrimaryLogo_Black.png" media="(prefers-color-scheme: light)">
-  
-  <link rel="icon" href="images/ON-AIR_PrimaryLogo_White.png" media="(prefers-color-scheme: dark)">
-
-  <link rel="icon" href="images/ON-AIR_PrimaryLogo_Black.png">
-
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/styles.css">
+        @keyframes blob {
+            0% { transform: scale(1); }
+            33% { transform: scale(1.1) translate(10px, -10px); }
+            66% { transform: scale(0.9) translate(-10px, 10px); }
+            100% { transform: scale(1); }
+        }
+        .animate-blob { animation: blob 7s infinite; }
+        .animation-delay-2000 { animation-delay: 2s; }
+        
+        .animate-bounce-slow {
+            animation: bounce 3s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8,0,1,1); }
+            50% { transform: none; animation-timing-function: cubic-bezier(0,0,0.2,1); }
+        }
+    </style>
 </head>
+<body class="min-h-screen text-stone-800 bg-[#fefce8]">
 
-<body>
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-5">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="bg-lime-800 p-2 rounded-lg shadow-lg">
+                    <i data-lucide="radio" class="text-white w-6 h-6"></i>
+                </div>
+                <span id="nav-logo" class="text-xl font-bold tracking-tighter text-white">
+                    ON AIR <span class="font-light">FOUNDATION</span>
+                </span>
+            </div>
 
-<nav class="site-nav">
-  <div class="nav-inner">
-    <a href="#hero" class="logo">
-      <img src="images/ON-AIR_PrimaryLogo_Black.png" alt="ON AIR Foundation">
-    </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#" class="nav-link font-medium text-white hover:text-amber-500 transition-colors">The Mission</a>
+                <a href="#" class="nav-link font-medium text-white hover:text-amber-500 transition-colors">Impact</a>
+                <a href="#" class="nav-link font-medium text-white hover:text-amber-500 transition-colors">Partners</a>
+                <button class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg">
+                    Donate Now
+                </button>
+            </div>
 
-    <ul class="nav-links">
-      <li><a href="#origen">Origen</a></li>
-      <li><a href="#modelo-educativo">Modelo Educativo</a></li>
-      <li><a href="#impacto">Impacto Social</a></li>
-    </ul>
-  </div>
-</nav>
+            <button class="md:hidden text-white" id="menu-btn">
+                <i data-lucide="menu" id="menu-icon"></i>
+            </button>
+        </div>
 
-<header id="hero" class="hero parallax">
-  <div class="hero-content container hero-grid">
+        <div id="mobile-menu" class="hidden bg-white absolute top-full left-0 w-full shadow-xl border-t border-stone-100 p-6 space-y-4">
+            <a href="#" class="block text-lg font-medium text-stone-700">The Mission</a>
+            <a href="#" class="block text-lg font-medium text-stone-700">Impact</a>
+            <a href="#" class="block text-lg font-medium text-stone-700">Partners</a>
+            <button class="w-full bg-amber-500 text-white py-3 rounded-xl font-bold">Donate Now</button>
+        </div>
+    </nav>
 
-    <div class="hero-text">
-      <span class="hero-badge">Educación Rural</span>
+    <section class="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-lime-900/80 to-transparent z-10"></div>
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000" alt="Entre Ríos Landscape" class="w-full h-full object-cover">
+        </div>
 
-      <h1>
-        Conectando el Presente<br>
-        con el <span>Futuro</span>
-      </h1>
+        <div class="container mx-auto px-6 relative z-20">
+            <div class="max-w-3xl text-white">
+                <div class="inline-flex items-center space-x-2 bg-amber-500/20 backdrop-blur-md border border-amber-500/30 px-4 py-1 rounded-full mb-6">
+                    <span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
+                    <span class="text-amber-300 text-sm font-bold tracking-widest uppercase">Campaign Launch</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+                    We Are <span class="text-amber-400">On Air</span><br>
+                    <span class="text-white/90">Connecting the First Futures</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-stone-200 mb-8 max-w-2xl leading-relaxed">
+                    Technology is not a luxury — it is a right. We are delivering the tools to turn dreams into reality.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button class="bg-amber-500 hover:bg-amber-600 text-white text-lg font-bold px-8 py-4 rounded-xl transition-all shadow-xl flex items-center justify-center">
+                        Learn About the Campaign <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                    </button>
+                    <button class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white text-lg font-bold px-8 py-4 rounded-xl transition-all">
+                        Join the Cause
+                    </button>
+                </div>
+            </div>
+        </div>
 
-      <p>
-        Reducimos la desigualdad educativa y digital en comunidades rurales
-        de Entre Ríos, Argentina.
-      </p>
+        <div class="absolute bottom-10 right-10 hidden lg:block animate-bounce-slow">
+            <div class="bg-white/10 backdrop-blur-lg p-6 rounded-3xl border border-white/20 shadow-2xl">
+                <div class="flex items-center space-x-4 text-white">
+                    <div class="bg-sky-500 p-3 rounded-2xl">
+                        <i data-lucide="globe" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold uppercase tracking-tighter text-sky-300">Next Stop</p>
+                        <p class="text-lg font-bold">Entre Ríos, Argentina</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <div class="hero-actions">
-        <a href="campaign.html" class="primary-btn" style="background-color: #f59e0b; border: 1px solid #f59e0b;">Ver Campaña</a>
-        <a href="https://www.miamix.io/donations" target="_blank" class="secondary-btn">Dona Aquí</a>
-      </div>
-    </div>
-    
-    <div class="hero-spacer"></div>
-    
-  </div>
-</header>
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-4xl font-black text-lime-900 mb-4">The Mission</h2>
+                <p class="text-stone-500 text-lg italic">Every device represents a door opening to possibility.</p>
+            </div>
 
-<section id="origen" class="section">
-  <div class="container narrow">
-    <h1 class="text-center">Nuestro Origen</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="group bg-stone-50 p-8 rounded-[2rem] border-b-4 border-amber-500 hover:shadow-2xl transition-all hover:-translate-y-2">
+                    <div class="bg-amber-100 text-amber-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="laptop" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-4xl font-black text-stone-800 mb-2">50+</h3>
+                    <p class="text-stone-600 font-medium">High-performance computers for students</p>
+                </div>
 
-    <p class="spaced">
-      ON-AIR FOUNDATION nació a partir de experiencias personales en Colonia Federal, Entre Ríos, 
-      donde la limitada infraestructura educativa reveló cómo el lugar de nacimiento puede influir en las oportunidades.
-    </p>
+                <div class="group bg-stone-50 p-8 rounded-[2rem] border-b-4 border-sky-500 hover:shadow-2xl transition-all hover:-translate-y-2">
+                    <div class="bg-sky-100 text-sky-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="tablet" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-4xl font-black text-stone-800 mb-2">30+</h3>
+                    <p class="text-stone-600 font-medium">Tablets for educational centers</p>
+                </div>
 
-    <p class="spaced">
-      Desde Virginia, EE. UU., trabajamos para asegurar que los niños tengan
-      acceso a herramientas que eliminen las barreras geográficas para el aprendizaje.
-    </p>
-  </div>
-</section>
+                <div class="group bg-stone-50 p-8 rounded-[2rem] border-b-4 border-lime-600 hover:shadow-2xl transition-all hover:-translate-y-2">
+                    <div class="bg-lime-100 text-lime-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="smartphone" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-4xl font-black text-stone-800 mb-2">20+</h3>
+                    <p class="text-stone-600 font-medium">Smartphones for local entrepreneurs</p>
+                </div>
 
-<section id="mision" class="section mission parallax">
-  <div class="container grid-3">
-    <div class="mission-card">
-      <h3>Misión</h3>
-      <p>
-        Empoderando a las comunidades rurales a través de una educación tecnológica y bilingüe de calidad.
-      </p>
-    </div>
+                <div class="bg-lime-900 p-8 rounded-[2rem] shadow-xl text-white hover:-translate-y-2 transition-all">
+                    <div class="bg-white/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="globe" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-3xl font-black mb-2">Goal</h3>
+                    <p class="text-lime-100 font-medium">Close the digital divide across Entre Ríos</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="mission-card">
-      <h3>Visión</h3>
-      <p>
-        Un futuro en el que la calidad de la educación no dependa de la ubicación geográfica.
-      </p>
-    </div>
+    <footer class="py-16 bg-stone-900 text-stone-400 border-t border-stone-800">
+        <div class="container mx-auto px-6 text-center">
+            <p>© 2024 On Air Foundation. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <div class="mission-card">
-      <h3>Valores</h3>
-      <p>
-        Equidad digital, inclusión y una perspectiva glocal.
-      </p>
-    </div>
-  </div>
-</section>
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
 
-<section id="modelo-educativo" class="section alt">
-  <div class="container">
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        const navLogo = document.getElementById('nav-logo');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const menuBtn = document.getElementById('menu-btn');
 
-    <h2 class="text-center">Modelo Educativo</h2>
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-3');
+                navbar.classList.remove('bg-transparent', 'py-5');
+                navLogo.classList.add('text-lime-900');
+                navLogo.classList.remove('text-white');
+                menuBtn.classList.add('text-lime-900');
+                menuBtn.classList.remove('text-white');
+                navLinks.forEach(link => {
+                    link.classList.add('text-stone-600');
+                    link.classList.remove('text-white');
+                });
+            } else {
+                navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-3');
+                navbar.classList.add('bg-transparent', 'py-5');
+                navLogo.classList.remove('text-lime-900');
+                navLogo.classList.add('text-white');
+                menuBtn.classList.remove('text-lime-900');
+                menuBtn.classList.add('text-white');
+                navLinks.forEach(link => {
+                    link.classList.remove('text-stone-600');
+                    link.classList.add('text-white');
+                });
+            }
+        });
 
-    <p class="intro">
-      Nuestro modelo integra educación, tecnología e infraestructura 
-      para crear un impacto sostenible en las comunidades rurales.
-    </p>
-
-    <div class="grid-2">
-      
-      <div class="edu-block">
-        <h3>Alfabetización Digital</h3>
-        <p>
-          Enseñar el uso responsable de la tecnología para preparar a los estudiantes
-          para futuros académicos y profesionales.
-        </p>
-        <ul class="implementation-list">
-          <li>Equipo tecnológico individual</li>
-          <li>Conectividad satelital de alta velocidad</li>
-        </ul>
-      </div>
-
-      <div class="edu-block">
-        <h3>Educación Bilingüe</h3>
-        <p>
-          El inglés como puente hacia el conocimiento global y la colaboración internacional.
-        </p>
-        <ul class="implementation-list">
-          <li>Formación docente híbrida</li>
-          <li>Mentoría internacional mensual</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="impacto" class="section impacto-hero parallax">
-  <div class="container narrow">
-    <div class="glass-card text-center">
-      <h2>Impacto</h2>
-      <p>
-        Visualizamos un futuro sin límites educativos, 
-        donde cada niño en Entre Ríos pueda crecer como un ciudadano global.
-      </p>
-    </div>
-  </div>
-</section>
-
-<script src="js/scripts.js"></script>
-      
-<footer class="site-footer">
-  <div class="footer-inner">
-
-    <div class="footer-info">
-      <p class="footer-title">ON AIR Foundation</p>
-      <p class="footer-text">
-        Educación sin límites para comunidades rurales.
-      </p>
-      <p class="footer-contact">
-        Virginia, USA & Entre Ríos, Argentina<br>
-        info@onairfoundation.com
-      </p>
-    </div>
-
-    <div class="footer-logos">
-      <img src="images/visit-argentina.JPG" alt="Visit Argentina" />
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    © 2026 ON AIR Foundation. All rights reserved.
-  </div>
-</footer>
-
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
