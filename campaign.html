@@ -1,143 +1,284 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campaign Launch | On Air Foundation</title>
-    
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body class="campaign-page">
+import React, { useState, useEffect } from 'react';
+import { 
+  Laptop, 
+  Smartphone, 
+  Tablet, 
+  Globe, 
+  ArrowRight, 
+  Wifi,
+  ChevronDown,
+  Menu,
+  X,
+  Target,
+  ShieldCheck,
+  Zap
+} from 'lucide-react';
 
-    <nav id="navbar" class="campaign-nav">
-        <div class="container flex-between">
-            <div class="flex-center gap-2">
-                <div class="nav-icon-box">
-                    <i data-lucide="radio" class="w-6 h-6"></i>
-                </div>
-                <a href="index.html" class="campaign-nav-logo">
-                    ON AIR <span>FOUNDATION</span>
-                </a>
+const App = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // On Air Foundation Palette:
+  // Brand Blue: #0056b3
+  // Light Sky: #e1f0ff
+  // Text Dark: #1a1a1a
+  // Soft Gray: #f8f9fa
+
+  return (
+    <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+      {/* Dynamic Navigation */}
+      <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-8'}`}>
+        <div className="container mx-auto px-8 flex justify-between items-center">
+          <div className="flex items-center space-x-3 group cursor-pointer">
+            <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center transition-transform group-hover:rotate-12">
+              <Wifi className="text-white w-5 h-5" />
             </div>
+            <span className="text-xl font-semibold tracking-tight">
+              ON AIR <span className="text-blue-600 font-light">FOUNDATION</span>
+            </span>
+          </div>
 
-            <div class="hidden md:flex flex-center campaign-nav-links">
-                <a href="index.html">Main Website</a>
-                <a href="#mission">The Mission</a>
-                <a href="https://www.miamix.io/donations" class="btn-campaign btn-campaign-amber" style="padding: 0.5rem 1.5rem; margin-left: 2rem; font-size: 0.95rem;">
-                    Support Cause
-                </a>
-            </div>
+          {/* Desktop Links */}
+          <div className="hidden md:flex items-center space-x-10">
+            {['Mission', 'Impact', 'Partners'].map((item) => (
+              <a key={item} href={`#${item.toLowerCase()}`} className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors tracking-wide uppercase">
+                {item}
+              </a>
+            ))}
+            <button className="bg-slate-900 hover:bg-blue-700 text-white px-7 py-2.5 rounded-full text-sm font-semibold transition-all shadow-md active:scale-95">
+              Donate Now
+            </button>
+          </div>
+
+          {/* Mobile Toggle */}
+          <button className="md:hidden text-slate-900" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-    </nav>
+      </nav>
 
-    <section class="campaign-hero">
-        <div class="campaign-hero-bg">
-            <img src="images/hero.JPG" alt="Entre Ríos Landscape">
-        </div>
-        <div class="campaign-hero-overlay"></div>
-
-        <div class="container campaign-hero-content">
-            <div class="launch-badge">
-                <span class="launch-dot"></span>
-                <span>Live Activation</span>
+      {/* Hero Section - Minimalist & Airy */}
+      <section className="relative pt-44 pb-32 overflow-hidden bg-slate-50">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-600/5 clip-path-hero hidden lg:block" />
+        
+        <div className="container mx-auto px-8 relative z-10">
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center space-x-2 text-blue-600 font-bold text-xs uppercase tracking-[0.2em] mb-8 bg-blue-50 px-4 py-1.5 rounded-full">
+              <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse" />
+              <span>Campaign Launch</span>
             </div>
             
-            <h1 class="campaign-hero-title">
-                We Are <span class="highlight">On Air</span><br>
-                <span class="sub-highlight">Connecting the First Futures</span>
+            <h1 className="text-6xl md:text-8xl font-light tracking-tighter leading-[0.9] mb-10 text-slate-900">
+              We Are <span className="font-bold text-blue-600 italic">On Air</span><br />
+              <span className="font-medium">Connecting Futures.</span>
             </h1>
             
-            <p class="campaign-hero-desc">
-                Technology is not a luxury — it is a right. We are delivering the tools to turn dreams into reality across Entre Ríos, Argentina.
+            <p className="text-xl md:text-2xl text-slate-500 mb-12 max-w-2xl leading-relaxed font-light">
+              Technology is not a luxury — it is a right. We are delivering the tools to transform potential into progress.
             </p>
             
-            <div class="flex-center gap-4" style="justify-content: flex-start; flex-wrap: wrap;">
-                <a href="#mission" class="btn-campaign btn-campaign-amber">
-                    Explore the Mission <i data-lucide="arrow-right" style="margin-left: 0.5rem; width: 20px;"></i>
-                </a>
-                <a href="index.html" class="btn-campaign btn-campaign-glass">
-                    Return to Foundation
-                </a>
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 items-center">
+              <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white text-base font-bold px-10 py-5 rounded-2xl transition-all shadow-xl shadow-blue-200 flex items-center justify-center">
+                Learn About the Campaign <ArrowRight className="ml-3 w-4 h-4" />
+              </button>
+              <button className="w-full sm:w-auto group flex items-center justify-center text-slate-900 font-bold hover:text-blue-600 transition-colors py-4">
+                Join the Cause <div className="ml-2 w-8 h-[1px] bg-slate-400 group-hover:bg-blue-600 transition-all group-hover:w-12" />
+              </button>
             </div>
+          </div>
         </div>
 
-        <div class="floating-location">
-            <div class="flex-center gap-4">
-                <div class="loc-icon-box">
-                    <i data-lucide="globe"></i>
-                </div>
-                <div class="loc-text">
-                    <p>Activation Point</p>
-                    <p>Entre Ríos, Argentina</p>
-                </div>
+        {/* Floating Stat Card */}
+        <div className="absolute bottom-20 right-20 hidden xl:block animate-float">
+          <div className="bg-white p-8 rounded-[2.5rem] shadow-2xl shadow-slate-200 border border-slate-100 flex items-center space-x-6">
+            <div className="p-4 bg-blue-50 rounded-2xl text-blue-600">
+              <Target size={32} />
             </div>
-        </div>
-    </section>
-
-    <section id="mission" class="campaign-mission-sec">
-        <div class="container">
-            <div class="campaign-sec-header">
-                <h2>The Mission Target</h2>
-                <p>Every device represents a door opening to possibility.</p>
+            <div>
+              <p className="text-3xl font-black text-slate-900">100%</p>
+              <p className="text-slate-400 font-medium uppercase text-xs tracking-widest">Digital Inclusion</p>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div class="stat-grid-4">
-                <div class="stat-card">
-                    <div class="stat-icon amber">
-                        <i data-lucide="laptop"></i>
-                    </div>
-                    <h3>50+</h3>
-                    <p>High-performance computers for students</p>
-                </div>
-
-                <div class="stat-card sky">
-                    <div class="stat-icon sky">
-                        <i data-lucide="tablet"></i>
-                    </div>
-                    <h3>30+</h3>
-                    <p>Tablets for educational centers</p>
-                </div>
-
-                <div class="stat-card lime">
-                    <div class="stat-icon lime">
-                        <i data-lucide="smartphone"></i>
-                    </div>
-                    <h3>20+</h3>
-                    <p>Smartphones for local entrepreneurs</p>
-                </div>
-
-                <div class="stat-card dark">
-                    <div class="stat-icon glass">
-                        <i data-lucide="zap"></i>
-                    </div>
-                    <h3>Goal</h3>
-                    <p>Close the digital divide across Entre Ríos</p>
-                </div>
+      {/* The Mission - Clean Data Grid */}
+      <section id="mission" className="py-32 bg-white">
+        <div className="container mx-auto px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-20">
+            <div className="max-w-xl">
+              <h2 className="text-4xl font-bold text-slate-900 mb-6 tracking-tight">The Mission</h2>
+              <p className="text-slate-500 text-lg">Every device represents a door opening to possibility. Our first campaign focuses on providing essential hardware.</p>
             </div>
+            <div className="mt-8 md:mt-0 text-blue-600 font-medium flex items-center group cursor-pointer">
+              View Roadmap <ChevronDown className="ml-1 group-hover:translate-y-1 transition-transform" />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {[
+              { icon: <Laptop />, count: "50+", label: "Computers", desc: "For students and remote learners." },
+              { icon: <Tablet />, count: "30+", label: "Educational Tablets", desc: "Equipped for school environments." },
+              { icon: <Smartphone />, count: "20+", label: "Smartphones", desc: "Powering local entrepreneurs." },
+            ].map((item, idx) => (
+              <div key={idx} className="group p-10 rounded-[3rem] bg-slate-50 hover:bg-white border border-transparent hover:border-slate-100 hover:shadow-xl transition-all duration-500">
+                <div className="text-blue-600 mb-8 p-4 bg-white rounded-2xl w-fit shadow-sm group-hover:scale-110 transition-transform">
+                  {React.cloneElement(item.icon, { size: 32 })}
+                </div>
+                <h3 className="text-5xl font-bold text-slate-900 mb-2">{item.count}</h3>
+                <p className="text-blue-600 font-bold mb-4 tracking-wide uppercase text-xs">{item.label}</p>
+                <p className="text-slate-500 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
-    </section>
+      </section>
 
-    <footer class="campaign-footer">
-        <div class="container">
-            <p>© 2026 On Air Foundation. All rights reserved.</p>
+      {/* Why It Matters - Sophisticated Layout */}
+      <section className="py-32 bg-slate-900 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+                <path d="M 80 0 L 0 0 0 80" fill="none" stroke="white" strokeWidth="0.5" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+          </svg>
         </div>
-    </footer>
 
-    <script>
-        lucide.createIcons();
+        <div className="container mx-auto px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-24 items-center">
+            <div className="order-2 lg:order-1">
+              <h2 className="text-5xl font-bold mb-10 leading-tight">Technology is the bridge to human potential.</h2>
+              <div className="space-y-10">
+                {[
+                  { title: "Access to Education", text: "Turning isolated areas into global classrooms." },
+                  { title: "Economic Growth", text: "Connecting local talent with global opportunities." },
+                  { title: "Digital Sovereignty", text: "Ensuring no community is left behind in the silent era." }
+                ].map((point, i) => (
+                  <div key={i} className="flex space-x-6 border-l-2 border-blue-600/30 pl-8 hover:border-blue-600 transition-colors">
+                    <div>
+                      <h4 className="text-xl font-bold mb-2">{point.title}</h4>
+                      <p className="text-slate-400 leading-relaxed">{point.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="order-1 lg:order-2">
+              <div className="relative aspect-square">
+                <div className="absolute inset-0 bg-blue-600 rounded-[4rem] rotate-6 opacity-20" />
+                <div className="absolute inset-0 bg-white/5 backdrop-blur-3xl rounded-[4rem] border border-white/10" />
+                <div className="absolute inset-10 flex flex-col justify-center">
+                  <div className="text-blue-500 mb-6"><Zap size={48} /></div>
+                  <blockquote className="text-3xl font-light italic leading-snug">
+                    "Without access to technology, talent remains unseen and potential remains untapped."
+                  </blockquote>
+                  <div className="mt-8 h-1 w-20 bg-blue-600" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    </script>
-</body>
-</html>
+      {/* Transparency Section */}
+      <section className="py-32 bg-white">
+        <div className="container mx-auto px-8 text-center max-w-4xl">
+          <div className="mb-12 inline-block p-4 bg-blue-50 rounded-3xl text-blue-600">
+             <ShieldCheck size={40} />
+          </div>
+          <h2 className="text-4xl font-bold text-slate-900 mb-8">Transparency First</h2>
+          <p className="text-slate-500 text-xl leading-relaxed mb-16">
+            We haven’t delivered the first devices yet — and that’s why your support matters now. 
+            Funds raised will be directed entirely toward purchasing, configuring, and delivering equipment directly to selected beneficiaries.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-slate-50 p-6 rounded-2xl">
+              <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Phase 01</p>
+              <p className="font-bold text-slate-900">Purchase & Prep</p>
+            </div>
+            <div className="bg-slate-50 p-6 rounded-2xl">
+              <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Phase 02</p>
+              <p className="font-bold text-slate-900">Impact Delivery</p>
+            </div>
+            <div className="bg-slate-50 p-6 rounded-2xl">
+              <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Phase 03</p>
+              <p className="font-bold text-slate-900">Open Reports</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Final */}
+      <section className="py-32 bg-blue-600 text-white text-center px-8">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-5xl md:text-6xl font-bold mb-10 tracking-tight leading-tight">Power the First Transmission.</h2>
+          <p className="text-xl text-blue-100 mb-14 leading-relaxed font-light">
+            Help us turn intention into impact. Your donation, partnership, or time as a volunteer makes the connection possible.
+          </p>
+          <div className="flex flex-col md:flex-row gap-6 justify-center">
+            <button className="bg-white text-blue-600 font-black px-12 py-5 rounded-2xl text-lg hover:bg-slate-100 transition-all shadow-xl shadow-blue-800/30 active:scale-95">
+              Donate Now
+            </button>
+            <button className="bg-blue-700/50 border border-blue-400/30 text-white font-bold px-12 py-5 rounded-2xl text-lg hover:bg-blue-700 transition-all">
+              Become a Partner
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Simple Footer */}
+      <footer className="py-20 bg-white border-t border-slate-100">
+        <div className="container mx-auto px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                <Wifi size={16} className="text-white" />
+              </div>
+              <span className="font-bold text-slate-900 tracking-tight">ON AIR FOUNDATION</span>
+            </div>
+            <div className="flex space-x-12 text-sm font-medium text-slate-400">
+              <a href="#" className="hover:text-blue-600 transition-colors">Privacy</a>
+              <a href="#" className="hover:text-blue-600 transition-colors">Terms</a>
+              <a href="#" className="hover:text-blue-600 transition-colors">Contact</a>
+            </div>
+            <div className="text-slate-300 font-mono text-sm">
+              www.onairfoundation.com
+            </div>
+          </div>
+          <div className="mt-12 pt-8 border-t border-slate-50 text-center text-xs text-slate-300 tracking-[0.3em] uppercase">
+            © 2024 Connecting the first futures
+          </div>
+        </div>
+      </footer>
+
+      {/* Custom Global Animations */}
+      <style jsx global>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-20px); }
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+        .clip-path-hero {
+          clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default App;
+
