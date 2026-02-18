@@ -1,140 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campaign Launch | On Air Foundation</title>
-    
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>On Air Foundation | Educación Sin Límites</title>
+  
+  <link rel="icon" href="images/ON-AIR_PrimaryLogo_Black.png" media="(prefers-color-scheme: light)">
+  
+  <link rel="icon" href="images/ON-AIR_PrimaryLogo_White.png" media="(prefers-color-scheme: dark)">
+
+  <link rel="icon" href="images/ON-AIR_PrimaryLogo_Black.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="campaign-page">
 
-    <nav id="navbar" class="campaign-nav">
-        <div class="container flex-between">
-            <div class="flex-center gap-2">
-                <div class="nav-icon-box">
-                    <i data-lucide="radio" class="w-6 h-6"></i>
-                </div>
-                <a href="index.html" class="campaign-nav-logo">
-                    ON AIR <span>FOUNDATION</span>
-                </a>
-            </div>
+<body>
 
-            <div class="hidden md:flex flex-center campaign-nav-links">
-                <a href="index.html">Main Website</a>
-                <a href="#mission">The Mission</a>
-                <a href="https://www.miamix.io/donations" class="btn-campaign btn-campaign-amber" style="padding: 0.5rem 1.5rem; margin-left: 2rem; font-size: 0.95rem;">
-                    Support Cause
-                </a>
-            </div>
-        </div>
-    </nav>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="#hero" class="logo">
+      <img src="images/ON-AIR_PrimaryLogo_Black.png" alt="ON AIR Foundation">
+    </a>
 
-    <section class="campaign-hero">
-        <div class="campaign-hero-bg">
-            <img src="images/hero.JPG" alt="Entre Ríos Landscape">
-        </div>
-        <div class="campaign-hero-overlay"></div>
+    <ul class="nav-links">
+      <li><a href="#origen">Origen</a></li>
+      <li><a href="#modelo-educativo">Modelo Educativo</a></li>
+      <li><a href="#impacto">Impacto Social</a></li>
+    </ul>
+  </div>
+</nav>
 
-        <div class="container campaign-hero-content">
-            <div class="launch-badge">
-                <span class="launch-dot"></span>
-                <span>Live Activation</span>
-            </div>
-            
-            <h1 class="campaign-hero-title">
-                We Are <span class="highlight">On Air</span><br>
-                <span class="sub-highlight">Connecting the First Futures</span>
-            </h1>
-            
-            <p class="campaign-hero-desc">
-                Technology is not a luxury — it is a right. We are delivering the tools to turn dreams into reality across Entre Ríos, Argentina.
-            </p>
-            
-            <div class="flex-center gap-4" style="justify-content: flex-start; flex-wrap: wrap;">
-                <a href="#mission" class="btn-campaign btn-campaign-amber">
-                    Explore the Mission <i data-lucide="arrow-right" style="margin-left: 0.5rem; width: 20px;"></i>
-                </a>
-                <a href="index.html" class="btn-campaign btn-campaign-glass">
-                    Return to Foundation
-                </a>
-            </div>
-        </div>
+<header id="hero" class="hero parallax">
+  <div class="hero-content container hero-grid">
 
-        <div class="floating-location">
-            <div class="flex-center gap-4">
-                <div class="loc-icon-box">
-                    <i data-lucide="globe"></i>
-                </div>
-                <div class="loc-text">
-                    <p>Activation Point</p>
-                    <p>Entre Ríos, Argentina</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="hero-text">
+      <span class="hero-badge">Educación Rural</span>
 
-    <section id="mission" class="campaign-mission-sec">
-        <div class="container">
-            <div class="campaign-sec-header">
-                <h2>The Mission Target</h2>
-                <p>Every device represents a door opening to possibility.</p>
-            </div>
+      <h1>
+        Conectando el Presente<br>
+        con el <span>Futuro</span>
+      </h1>
 
-            <div class="stat-grid-4">
-                <div class="stat-card">
-                    <div class="stat-icon amber">
-                        <i data-lucide="laptop"></i>
-                    </div>
-                    <h3>50+</h3>
-                    <p>High-performance computers for students</p>
-                </div>
+      <p>
+        Reducimos la desigualdad educativa y digital en comunidades rurales
+        de Entre Ríos, Argentina.
+      </p>
 
-                <div class="stat-card sky">
-                    <div class="stat-icon sky">
-                        <i data-lucide="tablet"></i>
-                    </div>
-                    <h3>30+</h3>
-                    <p>Tablets for educational centers</p>
-                </div>
+      <div class="hero-actions">
+        <a href="https://www.miamix.io/donations" target="_blank" class="primary-btn">Dona Aquí</a>
+        <a href="mailto:donations@onairfoundation.com
+?subject=ON%20AIR%20Collaboration%20Inquiry
+&body=Hello%20ON%20AIR%20Team%2C%0D%0A%0D%0AI%E2%80%99m%20interested%20in%20learning%20more%20about%20ON%20AIR%20and%20exploring%20potential%20opportunities%20to%20connect.%0D%0A%0D%0ABest%20regards%2C" target="_blank" class="primary-btn">Contactanos</a>
+      </div>
+    </div>
+    
+    <div class="hero-spacer"></div>
+    
+  </div>
+</header>
 
-                <div class="stat-card lime">
-                    <div class="stat-icon lime">
-                        <i data-lucide="smartphone"></i>
-                    </div>
-                    <h3>20+</h3>
-                    <p>Smartphones for local entrepreneurs</p>
-                </div>
+<section id="origen" class="section">
+  <div class="container narrow">
+    <h1 class="text-center">Nuestro Origen</h1>
 
-                <div class="stat-card dark">
-                    <div class="stat-icon glass">
-                        <i data-lucide="zap"></i>
-                    </div>
-                    <h3>Goal</h3>
-                    <p>Close the digital divide across Entre Ríos</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <p class="spaced">
+      ON-AIR FOUNDATION nació a partir de experiencias personales en Colonia Federal, Entre Ríos, 
+      donde la limitada infraestructura educativa reveló cómo el lugar de nacimiento puede influir en las oportunidades.
+    </p>
 
-    <footer class="campaign-footer">
-        <div class="container">
-            <p>© 2026 On Air Foundation. All rights reserved.</p>
-        </div>
-    </footer>
+    <p class="spaced">
+      Desde Virginia, EE. UU., trabajamos para asegurar que los niños tengan
+      acceso a herramientas que eliminen las barreras geográficas para el aprendizaje.
+    </p>
+  </div>
+</section>
 
-    <script>
-        lucide.createIcons();
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    </script>
+<section id="mision" class="section mission parallax">
+  <div class="container grid-3">
+    <div class="mission-card">
+      <h3>Misión</h3>
+      <p>
+        Empoderando a las comunidades rurales a través de una educación tecnológica y bilingüe de calidad.
+      </p>
+    </div>
+
+    <div class="mission-card">
+      <h3>Visión</h3>
+      <p>
+        Un futuro en el que la calidad de la educación no dependa de la ubicación geográfica.
+      </p>
+    </div>
+
+    <div class="mission-card">
+      <h3>Valores</h3>
+      <p>
+        Equidad digital, inclusión y una perspectiva glocal.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="modelo-educativo" class="section alt">
+  <div class="container">
+
+    <h2 class="text-center">Modelo Educativo</h2>
+
+    <p class="intro">
+      Nuestro modelo integra educación, tecnología e infraestructura 
+      para crear un impacto sostenible en las comunidades rurales.
+    </p>
+
+    <div class="grid-2">
+      
+      <div class="edu-block">
+        <h3>Alfabetización Digital</h3>
+        <p>
+          Enseñar el uso responsable de la tecnología para preparar a los estudiantes
+          para futuros académicos y profesionales.
+        </p>
+        <ul class="implementation-list">
+          <li>Equipo tecnológico individual</li>
+          <li>Conectividad satelital de alta velocidad</li>
+        </ul>
+      </div>
+
+      <div class="edu-block">
+        <h3>Educación Bilingüe</h3>
+        <p>
+          El inglés como puente hacia el conocimiento global y la colaboración internacional.
+        </p>
+        <ul class="implementation-list">
+          <li>Formación docente híbrida</li>
+          <li>Mentoría internacional mensual</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="impacto" class="section impacto-hero parallax">
+  <div class="container narrow">
+    <div class="glass-card text-center">
+      <h2>Impacto</h2>
+      <p>
+        Visualizamos un futuro sin límites educativos, 
+        donde cada niño en Entre Ríos pueda crecer como un ciudadano global.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script src="js/scripts.js"></script>
+      
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <div class="footer-info">
+      <p class="footer-title">ON AIR Foundation</p>
+      <p class="footer-text">
+        Educación sin límites para comunidades rurales.
+      </p>
+      <p class="footer-contact">
+        Virginia, USA & Entre Ríos, Argentina<br>
+        info@onairfoundation.com
+      </p>
+    </div>
+
+    <div class="footer-logos">
+      <img src="images/visit-argentina.JPG" alt="Visit Argentina" />
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 ON AIR Foundation. All rights reserved.
+  </div>
+</footer>
+
 </body>
 </html>
