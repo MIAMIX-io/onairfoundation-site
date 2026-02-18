@@ -1,380 +1,207 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  Laptop, 
-  Smartphone, 
-  Tablet, 
-  Globe, 
-  Heart, 
-  ArrowRight, 
-  CheckCircle2, 
-  Radio,
-  Zap,
-  Users,
-  Eye,
-  Menu,
-  X
-} from 'lucide-react';
-
-const App = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Entre Ríos Inspired Palette:
-  // Golden Sunset: #f59e0b (Amber 500)
-  // Earthy Green: #3f6212 (Lime 900)
-  // Sky/River Blue: #0ea5e9 (Sky 500)
-  // Warm Earth: #fefce8 (Yellow 50)
-
-  return (
-    <div className="min-h-screen font-sans text-stone-800 bg-[#fefce8]">
-      {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <div className="bg-lime-800 p-2 rounded-lg">
-              <Radio className="text-white w-6 h-6" />
-            </div>
-            <span className={`text-xl font-bold tracking-tighter ${scrolled ? 'text-lime-900' : 'text-lime-900 md:text-white'}`}>
-              ON AIR <span className="font-light">FOUNDATION</span>
-            </span>
-          </div>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#" className={`font-medium hover:text-amber-500 transition-colors ${scrolled ? 'text-stone-600' : 'text-white'}`}>The Mission</a>
-            <a href="#" className={`font-medium hover:text-amber-500 transition-colors ${scrolled ? 'text-stone-600' : 'text-white'}`}>Impact</a>
-            <a href="#" className={`font-medium hover:text-amber-500 transition-colors ${scrolled ? 'text-stone-600' : 'text-white'}`}>Partners</a>
-            <button className="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg">
-              Donate Now
-            </button>
-          </div>
-
-          {/* Mobile Toggle */}
-          <button className="md:hidden text-lime-900" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white absolute top-full left-0 w-full shadow-xl border-t border-stone-100 p-6 space-y-4 animate-in slide-in-from-top">
-            <a href="#" className="block text-lg font-medium text-stone-700">The Mission</a>
-            <a href="#" className="block text-lg font-medium text-stone-700">Impact</a>
-            <a href="#" className="block text-lg font-medium text-stone-700">Partners</a>
-            <button className="w-full bg-amber-500 text-white py-3 rounded-xl font-bold">Donate Now</button>
-          </div>
-        )}
-      </nav>
-
-      {/* Hero Section - The Countryside Sunset Aesthetic */}
-      <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
-        {/* Abstract "Entre Ríos" Background Layer */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-lime-900/80 to-transparent z-10" />
-          <img 
-            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000" 
-            alt="Countryside landscape" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-
-        <div className="container mx-auto px-6 relative z-20">
-          <div className="max-w-3xl text-white">
-            <div className="inline-flex items-center space-x-2 bg-amber-500/20 backdrop-blur-md border border-amber-500/30 px-4 py-1 rounded-full mb-6">
-              <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
-              <span className="text-amber-300 text-sm font-bold tracking-widest uppercase">Campaign Launch</span>
-            </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-              We Are <span className="text-amber-400">On Air</span><br />
-              <span className="text-white/90">Connecting the First Futures</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-stone-200 mb-8 max-w-2xl leading-relaxed">
-              Technology is not a luxury — it is a right. We are delivering the tools to turn dreams into reality.
-            </p>
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <button className="bg-amber-500 hover:bg-amber-600 text-white text-lg font-bold px-8 py-4 rounded-xl transition-all shadow-xl flex items-center justify-center">
-                Learn About the Campaign <ArrowRight className="ml-2 w-5 h-5" />
-              </button>
-              <button className="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white text-lg font-bold px-8 py-4 rounded-xl transition-all">
-                Join the Cause
-              </button>
-            </div>
-          </div>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign | On Air Foundation</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap');
         
-        {/* Floating elements for dynamism */}
-        <div className="absolute bottom-10 right-10 hidden lg:block animate-bounce-slow">
-            <div className="bg-white/10 backdrop-blur-lg p-6 rounded-3xl border border-white/20 shadow-2xl">
-                <div className="flex items-center space-x-4 text-white">
-                    <div className="bg-sky-500 p-3 rounded-2xl">
-                        <Globe className="w-6 h-6" />
-                    </div>
-                    <div>
-                        <p className="text-sm font-bold uppercase tracking-tighter text-sky-300">Next Stop</p>
-                        <p className="text-lg font-bold">Entre Ríos, Argentina</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </section>
+        body { font-family: 'Inter', sans-serif; }
 
-      {/* The Mission - Dynamic Stats Grid */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-4xl font-black text-lime-900 mb-4">The Mission</h2>
-            <p className="text-stone-500 text-lg italic">Every device represents a door opening to possibility.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="group bg-stone-50 p-8 rounded-[2rem] border-b-4 border-amber-500 hover:shadow-2xl transition-all hover:-translate-y-2">
-              <div className="bg-amber-100 text-amber-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Laptop size={32} />
-              </div>
-              <h3 className="text-4xl font-black text-stone-800 mb-2">50+</h3>
-              <p className="text-stone-600 font-medium">High-performance computers for students</p>
-            </div>
-
-            <div className="group bg-stone-50 p-8 rounded-[2rem] border-b-4 border-sky-500 hover:shadow-2xl transition-all hover:-translate-y-2">
-              <div className="bg-sky-100 text-sky-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Tablet size={32} />
-              </div>
-              <h3 className="text-4xl font-black text-stone-800 mb-2">30+</h3>
-              <p className="text-stone-600 font-medium">Tablets for educational centers</p>
-            </div>
-
-            <div className="group bg-stone-50 p-8 rounded-[2rem] border-b-4 border-lime-600 hover:shadow-2xl transition-all hover:-translate-y-2">
-              <div className="bg-lime-100 text-lime-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Smartphone size={32} />
-              </div>
-              <h3 className="text-4xl font-black text-stone-800 mb-2">20+</h3>
-              <p className="text-stone-600 font-medium">Smartphones for local entrepreneurs</p>
-            </div>
-
-            <div className="group bg-lime-900 p-8 rounded-[2rem] shadow-xl text-white hover:-translate-y-2 transition-all">
-              <div className="bg-white/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
-                <Globe size={32} />
-              </div>
-              <h3 className="text-3xl font-black mb-2">Goal</h3>
-              <p className="text-lime-100 font-medium">Close the digital divide across Entre Ríos</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why It Matters - Emotive Layout */}
-      <section className="py-24 bg-[#fefce8] relative overflow-hidden">
-        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-          <div className="relative">
-             <div className="absolute -top-10 -left-10 w-40 h-40 bg-amber-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
-             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-sky-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000" />
-             <img 
-               src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=800" 
-               className="rounded-[3rem] shadow-2xl relative z-10"
-               alt="Children learning"
-             />
-             <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl z-20 max-w-[200px]">
-                <p className="text-lime-800 font-black text-2xl">92%</p>
-                <p className="text-stone-500 text-sm font-medium">of remote jobs require digital literacy</p>
-             </div>
-          </div>
-
-          <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-black text-lime-900 leading-tight">
-              Why It Matters
-            </h2>
-            <p className="text-lg text-stone-600 leading-relaxed">
-              Millions of people are still disconnected from essential digital tools necessary for education, employment, and communication. 
-            </p>
-            <div className="space-y-4">
-              {[
-                { title: "Unseen Talent", desc: "Potential remains hidden without the tools to express it.", icon: <Eye /> },
-                { title: "Limited Dreams", desc: "Connectivity shouldn't be a luxury for the few.", icon: <Users /> },
-                { title: "Empowered Futures", desc: "Technology is the bridge to the global economy.", icon: <Zap /> },
-              ].map((item, i) => (
-                <div key={i} className="flex items-start space-x-4 p-4 rounded-2xl hover:bg-white transition-colors">
-                  <div className="text-amber-500 mt-1">{item.icon}</div>
-                  <div>
-                    <h4 className="font-bold text-stone-800 text-xl">{item.title}</h4>
-                    <p className="text-stone-500">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Will Work - Process Steps */}
-      <section className="py-24 bg-white border-y border-stone-100">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 space-y-4">
-            <div className="max-w-xl">
-               <h2 className="text-4xl font-black text-lime-900 mb-4">How It Will Work</h2>
-               <p className="text-stone-500 text-lg">Transparency is fundamental to our mission. Here is our roadmap for the first transmission.</p>
-            </div>
-            <div className="bg-sky-50 text-sky-600 px-6 py-3 rounded-full font-bold flex items-center">
-                <CheckCircle2 className="mr-2" /> 100% of funds to devices
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {[
-              { 
-                step: "01", 
-                title: "Curated Sourcing", 
-                text: "Purchasing new or certified devices ensuring the highest quality for long-term use.",
-                icon: <Laptop className="w-8 h-8" />
-              },
-              { 
-                step: "02", 
-                title: "Smart Config", 
-                text: "Each piece of equipment is prepared with educational software and ready-to-work tools.",
-                icon: <Zap className="w-8 h-8" />
-              },
-              { 
-                step: "03", 
-                title: "Direct Delivery", 
-                text: "We deliver directly to the hands of those who need it most, capturing their stories.",
-                icon: <Heart className="w-8 h-8" />
-              }
-            ].map((step, i) => (
-              <div key={i} className="relative p-8 rounded-3xl bg-stone-50 border border-stone-100">
-                <span className="absolute -top-6 left-8 text-6xl font-black text-stone-200">{step.step}</span>
-                <div className="mb-6 text-amber-500 relative z-10">{step.icon}</div>
-                <h3 className="text-2xl font-bold text-stone-800 mb-4">{step.title}</h3>
-                <p className="text-stone-500 leading-relaxed">{step.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section - Final Transmission */}
-      <section className="py-24 bg-lime-900 text-white relative overflow-hidden">
-        {/* Background Texture */}
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-            <div className="grid grid-cols-12 h-full w-full">
-                {[...Array(120)].map((_, i) => (
-                    <div key={i} className="border-[0.5px] border-white/20 h-24 w-full" />
-                ))}
-            </div>
-        </div>
-
-        <div className="container mx-auto px-6 text-center relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <Radio className="w-16 h-16 mx-auto mb-8 text-amber-400 animate-pulse" />
-            <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight">
-              Be Part of the <span className="text-amber-400">First Transmission</span>
-            </h2>
-            <p className="text-xl text-lime-100/80 mb-12 max-w-2xl mx-auto leading-relaxed">
-              We haven’t delivered the first devices yet — and that’s exactly why your support matters now. 
-              Help us power the first screens.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <button className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-5 rounded-2xl font-bold text-xl shadow-2xl transition-all transform hover:scale-105">
-                Donate Now
-              </button>
-              <button className="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-8 py-5 rounded-2xl font-bold text-xl transition-all backdrop-blur-md">
-                Become a Volunteer
-              </button>
-              <button className="bg-sky-500 hover:bg-sky-600 text-white px-8 py-5 rounded-2xl font-bold text-xl shadow-2xl transition-all transform hover:scale-105">
-                Partner With Us
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-16 bg-stone-900 text-stone-400 border-t border-stone-800">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div className="col-span-1 md:col-span-2">
-              <div className="flex items-center space-x-2 mb-6">
-                <Radio className="text-amber-500 w-6 h-6" />
-                <span className="text-2xl font-bold tracking-tighter text-white">
-                  ON AIR <span className="font-light">FOUNDATION</span>
-                </span>
-              </div>
-              <p className="max-w-sm mb-6">
-                A non-profit organization dedicated to closing the digital divide and empowering communities through technology.
-              </p>
-              <div className="flex space-x-4">
-                {/* Social Placeholders */}
-                <div className="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all cursor-pointer">
-                    <span className="font-bold">Ig</span>
-                </div>
-                <div className="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all cursor-pointer">
-                    <span className="font-bold">X</span>
-                </div>
-                <div className="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-all cursor-pointer">
-                    <span className="font-bold">In</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-sm">Quick Links</h4>
-              <ul className="space-y-4">
-                <li><a href="#" className="hover:text-amber-400 transition-colors">Our Mission</a></li>
-                <li><a href="#" className="hover:text-amber-400 transition-colors">Transparency</a></li>
-                <li><a href="#" className="hover:text-amber-400 transition-colors">Volunteer</a></li>
-                <li><a href="#" className="hover:text-amber-400 transition-colors">Contact</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-sm">Join the Newsletter</h4>
-              <p className="text-sm mb-4">Stay updated with our first delivery reports.</p>
-              <div className="flex bg-stone-800 p-1 rounded-xl">
-                <input type="email" placeholder="Email address" className="bg-transparent px-4 py-2 w-full focus:outline-none" />
-                <button className="bg-amber-500 text-white px-4 py-2 rounded-lg font-bold">Go</button>
-              </div>
-            </div>
-          </div>
-          <div className="pt-12 border-t border-stone-800 text-sm text-center flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p>© 2024 On Air Foundation. All rights reserved.</p>
-            <div className="flex space-x-6">
-                <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            </div>
-            <p className="font-mono text-amber-500/50">www.onairfoundation.com</p>
-          </div>
-        </div>
-      </footer>
-
-      {/* Tailwind Custom Animations */}
-      <style jsx global>{`
         @keyframes blob {
-          0% { transform: scale(1); }
-          33% { transform: scale(1.1) translate(10px, -10px); }
-          66% { transform: scale(0.9) translate(-10px, 10px); }
-          100% { transform: scale(1); }
+            0% { transform: scale(1); }
+            33% { transform: scale(1.1) translate(10px, -10px); }
+            66% { transform: scale(0.9) translate(-10px, 10px); }
+            100% { transform: scale(1); }
         }
-        .animate-blob {
-          animation: blob 7s infinite;
-        }
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
+        .animate-blob { animation: blob 7s infinite; }
+        .animation-delay-2000 { animation-delay: 2s; }
+        
         .animate-bounce-slow {
-          animation: bounce 3s infinite;
+            animation: bounce 3s infinite;
         }
         @keyframes bounce {
-          0%, 100% { transform: translateY(-10%); animation-timing-function: cubic-bezier(0.8,0,1,1); }
-          50% { transform: none; animation-timing-function: cubic-bezier(0,0,0.2,1); }
+            0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8,0,1,1); }
+            50% { transform: none; animation-timing-function: cubic-bezier(0,0,0.2,1); }
         }
-      `}</style>
-    </div>
-  );
-};
+    </style>
+</head>
+<body class="min-h-screen text-stone-800 bg-[#fefce8]">
 
-export default App;
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-5">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="bg-lime-800 p-2 rounded-lg shadow-lg">
+                    <i data-lucide="radio" class="text-white w-6 h-6"></i>
+                </div>
+                <span id="nav-logo" class="text-xl font-bold tracking-tighter text-white">
+                    ON AIR <span class="font-light">FOUNDATION</span>
+                </span>
+            </div>
 
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#" class="nav-link font-medium text-white hover:text-amber-500 transition-colors">The Mission</a>
+                <a href="#" class="nav-link font-medium text-white hover:text-amber-500 transition-colors">Impact</a>
+                <a href="#" class="nav-link font-medium text-white hover:text-amber-500 transition-colors">Partners</a>
+                <button class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg">
+                    Donate Now
+                </button>
+            </div>
+
+            <button class="md:hidden text-white" id="menu-btn">
+                <i data-lucide="menu" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden bg-white absolute top-full left-0 w-full shadow-xl border-t border-stone-100 p-6 space-y-4">
+            <a href="#" class="block text-lg font-medium text-stone-700">The Mission</a>
+            <a href="#" class="block text-lg font-medium text-stone-700">Impact</a>
+            <a href="#" class="block text-lg font-medium text-stone-700">Partners</a>
+            <button class="w-full bg-amber-500 text-white py-3 rounded-xl font-bold">Donate Now</button>
+        </div>
+    </nav>
+
+    <section class="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-lime-900/80 to-transparent z-10"></div>
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000" alt="Entre Ríos Landscape" class="w-full h-full object-cover">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-20">
+            <div class="max-w-3xl text-white">
+                <div class="inline-flex items-center space-x-2 bg-amber-500/20 backdrop-blur-md border border-amber-500/30 px-4 py-1 rounded-full mb-6">
+                    <span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
+                    <span class="text-amber-300 text-sm font-bold tracking-widest uppercase">Campaign Launch</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+                    We Are <span class="text-amber-400">On Air</span><br>
+                    <span class="text-white/90">Connecting the First Futures</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-stone-200 mb-8 max-w-2xl leading-relaxed">
+                    Technology is not a luxury — it is a right. We are delivering the tools to turn dreams into reality.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button class="bg-amber-500 hover:bg-amber-600 text-white text-lg font-bold px-8 py-4 rounded-xl transition-all shadow-xl flex items-center justify-center">
+                        Learn About the Campaign <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                    </button>
+                    <button class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white text-lg font-bold px-8 py-4 rounded-xl transition-all">
+                        Join the Cause
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 right-10 hidden lg:block animate-bounce-slow">
+            <div class="bg-white/10 backdrop-blur-lg p-6 rounded-3xl border border-white/20 shadow-2xl">
+                <div class="flex items-center space-x-4 text-white">
+                    <div class="bg-sky-500 p-3 rounded-2xl">
+                        <i data-lucide="globe" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold uppercase tracking-tighter text-sky-300">Next Stop</p>
+                        <p class="text-lg font-bold">Entre Ríos, Argentina</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-4xl font-black text-lime-900 mb-4">The Mission</h2>
+                <p class="text-stone-500 text-lg italic">Every device represents a door opening to possibility.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="group bg-stone-50 p-8 rounded-[2rem] border-b-4 border-amber-500 hover:shadow-2xl transition-all hover:-translate-y-2">
+                    <div class="bg-amber-100 text-amber-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="laptop" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-4xl font-black text-stone-800 mb-2">50+</h3>
+                    <p class="text-stone-600 font-medium">High-performance computers for students</p>
+                </div>
+
+                <div class="group bg-stone-50 p-8 rounded-[2rem] border-b-4 border-sky-500 hover:shadow-2xl transition-all hover:-translate-y-2">
+                    <div class="bg-sky-100 text-sky-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="tablet" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-4xl font-black text-stone-800 mb-2">30+</h3>
+                    <p class="text-stone-600 font-medium">Tablets for educational centers</p>
+                </div>
+
+                <div class="group bg-stone-50 p-8 rounded-[2rem] border-b-4 border-lime-600 hover:shadow-2xl transition-all hover:-translate-y-2">
+                    <div class="bg-lime-100 text-lime-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="smartphone" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-4xl font-black text-stone-800 mb-2">20+</h3>
+                    <p class="text-stone-600 font-medium">Smartphones for local entrepreneurs</p>
+                </div>
+
+                <div class="bg-lime-900 p-8 rounded-[2rem] shadow-xl text-white hover:-translate-y-2 transition-all">
+                    <div class="bg-white/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="globe" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-3xl font-black mb-2">Goal</h3>
+                    <p class="text-lime-100 font-medium">Close the digital divide across Entre Ríos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-16 bg-stone-900 text-stone-400 border-t border-stone-800">
+        <div class="container mx-auto px-6 text-center">
+            <p>© 2024 On Air Foundation. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        const navLogo = document.getElementById('nav-logo');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const menuBtn = document.getElementById('menu-btn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-3');
+                navbar.classList.remove('bg-transparent', 'py-5');
+                navLogo.classList.add('text-lime-900');
+                navLogo.classList.remove('text-white');
+                menuBtn.classList.add('text-lime-900');
+                menuBtn.classList.remove('text-white');
+                navLinks.forEach(link => {
+                    link.classList.add('text-stone-600');
+                    link.classList.remove('text-white');
+                });
+            } else {
+                navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-3');
+                navbar.classList.add('bg-transparent', 'py-5');
+                navLogo.classList.remove('text-lime-900');
+                navLogo.classList.add('text-white');
+                menuBtn.classList.remove('text-lime-900');
+                menuBtn.classList.add('text-white');
+                navLinks.forEach(link => {
+                    link.classList.remove('text-stone-600');
+                    link.classList.add('text-white');
+                });
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
