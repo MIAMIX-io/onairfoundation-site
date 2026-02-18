@@ -1,471 +1,182 @@
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ==============================================================
+   CAMPAIGN & ACTIVATION LAUNCH PAGE STYLES (Added)
+   ============================================================== */
+:root {
+  --lime-800: #3f6212;
+  --lime-900: #365314;
+  --amber-100: #fef3c7;
+  --amber-300: #fcd34d;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --amber-600: #d97706;
+  --sky-100: #e0f2fe;
+  --sky-300: #7dd3fc;
+  --sky-500: #0ea5e9;
+  --sky-600: #0284c7;
+  --stone-50: #fafaf9;
+  --stone-200: #e7e5e4;
+  --stone-500: #78716c;
+  --stone-600: #57534e;
+  --stone-800: #292524;
+  --bg-yellow: #fefce8;
 }
 
-body {
-  font-family: 'Outfit', sans-serif;
-  background: #fafaf9;
-  color: #44403c;
-  line-height: 1.7;
+/* Base Campaign View */
+.campaign-page {
+  background-color: var(--bg-yellow);
+  font-family: 'Inter', sans-serif;
+  color: var(--stone-800);
+  line-height: 1.5;
 }
 
-h1, h2, h3 {
-  font-family: 'Lora', serif;
-  color: #1c1917;
+/* Utilities (Replacing Tailwind) */
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.gap-2 { gap: 0.5rem; }
+.gap-4 { gap: 1rem; }
+.hidden { display: none !important; }
+@media (min-width: 768px) {
+  .md\:flex { display: flex !important; }
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* UTILITIES */
-.text-center {
-  text-align: center;
-}
-
-/* PARALLAX UTILITY */
-.parallax {
-  background-attachment: fixed;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* NAVIGATION */
-.site-nav {
-  position: sticky;
+/* Transparent-to-Solid Sticky Nav */
+.campaign-nav {
+  position: fixed;
+  width: 100%;
   top: 0;
-  background: rgba(250,250,249,0.96);
-  border-bottom: 1px solid #e7e5e4;
-  z-index: 100;
+  z-index: 50;
+  transition: all 0.3s ease;
+  background: transparent;
+  padding: 1.25rem 0;
+}
+.campaign-nav.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  padding: 0.75rem 0;
+}
+.campaign-nav-logo {
+  font-size: 1.25rem; font-weight: 700; color: white; letter-spacing: -0.05em; transition: color 0.3s;
+}
+.campaign-nav.scrolled .campaign-nav-logo { color: var(--lime-900); }
+.campaign-nav-logo span { font-weight: 300; }
+
+.nav-icon-box {
+  background-color: var(--lime-800); padding: 0.5rem; border-radius: 0.5rem; color: white;
 }
 
-.nav-inner {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 24px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.campaign-nav-links a {
+  color: white; font-weight: 500; transition: color 0.2s; margin-left: 2rem; font-size: 0.95rem;
+}
+.campaign-nav.scrolled .campaign-nav-links a { color: var(--stone-600); }
+.campaign-nav-links a:hover { color: var(--amber-500); }
+
+/* Campaign Hero Section */
+.campaign-hero {
+  position: relative; min-height: 90vh; display: flex; align-items: center;
+  padding-top: 5rem; overflow: hidden;
+}
+.campaign-hero-bg { position: absolute; inset: 0; z-index: 0; }
+.campaign-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.campaign-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(54, 83, 20, 0.9), rgba(54, 83, 20, 0.3)); z-index: 1;
+}
+.campaign-hero-content {
+  position: relative; z-index: 2; color: white; max-width: 800px; padding: 0 24px;
 }
 
-.logo img {
-  height: 24px;
-}
+/* Animations */
+@keyframes pulse-amber { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+@keyframes bounce-slow { 0%, 100% { transform: translateY(-5%); } 50% { transform: translateY(0); } }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 32px;
-}
-
-.nav-links a {
-  font-size: 14px;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: #0f766e;
-}
-
-/* =========================
-   Hero Section
-========================= */
-.hero {
-  position: relative;
-  background-image: url("../images/hero.JPG");
-  padding-top: 8rem;
-  padding-bottom: 6rem;
-}
-
-/* Standard Overlay (Light) */
-.hero::before,
-.impacto-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    rgba(255, 255, 255, 0.75),
-    rgba(255, 255, 255, 0.45)
-  );
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  gap: 4rem;
-}
-
-/* =========================
-   Hero Text / Glass Cards
-========================= */
-.hero-text,
-.mission-card,
-.glass-card,
-.grid-2 {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(8px);
-  padding: 2.5rem 2.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-}
-
-.hero-text {
-  max-width: 520px;
-}
-
-.hero-badge {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #0f766e;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 0.4rem 0.75rem;
-  border-radius: 999px;
-  margin-bottom: 1.25rem;
-}
-
-.hero-text h1 {
-  font-family: 'Lora', serif;
-  font-size: 3.1rem;
-  line-height: 1.12;
-  color: #111827;
+/* Dynamic Labels */
+.launch-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(245, 158, 11, 0.2); backdrop-filter: blur(8px);
+  border: 1px solid rgba(245, 158, 11, 0.3); padding: 0.35rem 1rem; border-radius: 999px;
   margin-bottom: 1.5rem;
 }
-
-.hero-text h1 span {
-  color: #0f766e;
+.launch-dot {
+  width: 0.5rem; height: 0.5rem; background-color: var(--amber-500); border-radius: 50%;
+  animation: pulse-amber 2s infinite;
+}
+.launch-badge span:last-child {
+  color: var(--amber-300); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
 }
 
-.hero-text p {
-  font-size: 1.15rem;
-  color: #44403c;
-  margin-bottom: 2rem;
+.campaign-hero-title {
+  font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; font-family: 'Inter', sans-serif;
 }
-
-/* Buttons group */
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-}
-
-.primary-btn {
-  background-color: #0f766e;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: background-color 0.2s;
-}
-
-.primary-btn:hover {
-  background-color: #0d5f58;
-}
-
-.secondary-btn {
-  background-color: transparent;
-  color: #0f766e;
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  border: 1px solid #0f766e;
-  transition: background-color 0.2s;
-}
-
-.secondary-btn:hover {
-  background-color: rgba(15, 118, 110, 0.05);
-}
-
-/* Spacer column */
-.hero-spacer {
-  min-height: 200px;
-}
-
-/* =========================
-   Responsive
-========================= */
-@media (max-width: 768px) {
-  .hero {
-    padding: 7rem 0 8rem;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-text {
-    max-width: 100%;
-  }
-}
-
-/* SECTIONS */
-.section {
-  padding: 120px 0;
-}
-
-.alt {
-  background: #f5f5f4;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 24px;
-}
-
-.narrow {
-  max-width: 820px;
-}
-
-.spaced {
-  margin-top: 28px;
-}
-
-.intro {
-  max-width: 720px;
-  margin: 24px auto 56px;
-  text-align: center;
-}
-
-/* GRIDS */
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 48px;
-  margin-bottom: 56px;
-}
-
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
-}
-
-/* =========================
-   Origen Section
-========================= */
-#origen .section-title {
-  margin-bottom: 0.5rem;
-}
-
-#origen {
-  padding-top: 6rem; 
-  padding-bottom: 8rem;
-}
-
-/* MISSION (Background Section) */
-.mission {
-  background-image: url("../images/school-bell.jpg");
-  position: relative;
-}
-.mission .container {
-  position: relative;
-  z-index: 2;
-}
-
-.mission-card {
-  text-align: center;
-}
-
-/* EDUCATION MODEL */
-.edu-block h3 {
-  margin-bottom: 12px;
-}
-
-.implementation-list {
-  max-width: 600px;
-  margin: auto;
-  padding-left: 20px;
-  line-height: 2;
-}
-
-/* IMPACTO (Background Section) */
-.impacto-hero {
-  position: relative;
-  background-image: url("../images/girl-doll.jpeg");
-  
-  /* Horizontal: right (Focuses on the girl on the right side)
-     Vertical: bottom (Focuses on the lower part of the image)
-     
-     Note: Since this section uses the .parallax class, 
-     this position is relative to the browser window.
-  */
-  background-position: right bottom;
-}
-
-.impacto-hero .container {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-}
-
-.glass-card {
-  max-width: 600px;
-  width: 100%;
-  /* 40% Opacity as requested previously */
-  background: rgba(255, 255, 255, 0.4);
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .grid-2,
-  .grid-3 {
-    grid-template-columns: 1fr;
-  }
-
-  .nav-links {
-    display: none; 
-  }
-}
-/* =========================
-   Mobile Background Fixes
-========================= */
-@media (max-width: 768px) {
-  /* 1. Disable Parallax on Mobile 
-     (Prevents the "extreme zoom" effect caused by fixed backgrounds) */
-  .parallax {
-    background-attachment: scroll; 
-  }
-
-  /* 2. Hero Adjustment */
-  .hero {
-    /* Pull focus slightly lower to see more context */
-    background-position: center 20%; 
-  }
-
-  /* 3. Mission Adjustment */
-  .mission {
-    background-position: center center;
-  }
-
-  /* 4. Impacto (Girl) Adjustment */
-  .impacto-hero {
-    /* "cover" on mobile usually crops the sides heavily. 
-       We pin it to the 'right' to keep the girl visible, 
-       and 'center' vertically.
-    */
-    background-position: 75% center; 
-  }
-}
-
-/* =========================
-   FOOTER
-========================= */
-.site-footer {
-  background: #f5f5f4;
-  border-top: 1px solid #e7e5e4;
-  padding: 64px 24px 32px;
-}
-
-.footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 48px;
-  align-items: center;
-}
-
-.footer-info {
-  max-width: 420px;
-}
-
-.footer-title {
-  font-weight: 600;
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-}
-
-.footer-text {
-  font-size: 0.95rem;
-  margin-bottom: 16px;
-  color: #57534e;
-}
-
-.footer-contact {
-  font-size: 0.85rem;
-  color: #78716c;
-  line-height: 1.6;
-}
-
-.footer-logos {
-  display: flex;
-  gap: 32px;
-  align-items: right;
-}
-
-.footer-logos img {
-  max-height: 48px;
-  width: auto;
-  opacity: 0.85;
-  transition: opacity 0.2s;
-}
-
-.footer-logos img:hover {
-  opacity: 1;
-}
-
-.footer-bottom {
-  margin-top: 40px;
-  padding-top: 16px;
-  border-top: 1px solid #e7e5e4;
-  text-align: center;
-  font-size: 0.75rem;
-  color: #78716c;
+.campaign-hero-title .highlight { color: var(--amber-400); }
+.campaign-hero-title .sub-highlight { color: rgba(255,255,255,0.9); font-size: 2.5rem; display: block; margin-top: 0.5rem; }
+.campaign-hero-desc {
+  font-size: 1.25rem; color: var(--stone-200); margin-bottom: 2.5rem; line-height: 1.6; max-width: 600px;
 }
 
 @media (max-width: 768px) {
-  .footer-inner {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .footer-logos {
-    justify-content: center;
-  }
+  .campaign-hero-title { font-size: 2.5rem; }
+  .campaign-hero-title .sub-highlight { font-size: 1.8rem; }
 }
-/* =========================
-   iPad & Tablet Fixes
-========================= */
-/* Targets devices larger than mobile but smaller than desktop monitors */
-@media (min-width: 769px) and (max-width: 1366px) {
-  
-  /* 1. Disable Parallax 
-     (Fixes the "too zoomed in" issue on iOS) */
-  .parallax {
-    background-attachment: scroll;
-    background-size: cover;
-  }
 
-  /* 2. Hero Adjustment 
-     (Center it for better vertical balance on tablet portrait mode) */
-  .hero {
-    background-position: center center;
-  }
+/* Buttons */
+.btn-campaign {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 1rem 2rem; border-radius: 0.75rem; font-weight: 700; font-size: 1.05rem;
+  transition: all 0.3s; border: none; cursor: pointer; text-decoration: none;
+}
+.btn-campaign-amber { background: var(--amber-500); color: white; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+.btn-campaign-amber:hover { background: var(--amber-600); transform: translateY(-3px); }
+.btn-campaign-glass {
+  background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3); color: white;
+}
+.btn-campaign-glass:hover { background: rgba(255, 255, 255, 0.2); }
 
-  /* 3. Impacto (Girl) Adjustment 
-     (On tablet, 'right bottom' can sometimes hide the girl behind the text card.
-      '80% center' keeps her visible on the right side.) */
-  .impacto-hero {
-    background-position: 80% center;
-  }
+/* Floating Elements */
+.floating-location {
+  position: absolute; bottom: 2.5rem; right: 2.5rem;
+  background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px);
+  padding: 1.5rem; border-radius: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 10; display: none; animation: bounce-slow 3s infinite;
+}
+@media (min-width: 1024px) { .floating-location { display: block; } }
+.loc-icon-box { background: var(--sky-500); padding: 0.75rem; border-radius: 1rem; color: white; }
+.loc-text p:first-child { font-size: 0.85rem; font-weight: 700; color: var(--sky-300); text-transform: uppercase; }
+.loc-text p:last-child { font-size: 1.1rem; font-weight: 700; color: white; }
+
+/* The Mission Stats Cards */
+.campaign-mission-sec { padding: 6rem 0; background: white; }
+.campaign-sec-header { text-align: center; max-width: 600px; margin: 0 auto 4rem auto; }
+.campaign-sec-header h2 { font-size: 2.5rem; font-weight: 900; color: var(--lime-900); margin-bottom: 1rem; }
+.campaign-sec-header p { color: var(--stone-500); font-size: 1.125rem; font-style: italic; }
+
+.stat-grid-4 { display: grid; grid-template-columns: 1fr; gap: 2rem; padding: 0 24px; }
+@media (min-width: 768px) { .stat-grid-4 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .stat-grid-4 { grid-template-columns: repeat(4, 1fr); } }
+
+.stat-card {
+  background: var(--stone-50); padding: 2rem; border-radius: 2rem;
+  border-bottom: 4px solid var(--amber-500); transition: all 0.3s;
+}
+.stat-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+.stat-card.sky { border-bottom-color: var(--sky-500); }
+.stat-card.lime { border-bottom-color: var(--lime-800); }
+.stat-card.dark { background: var(--lime-900); color: white; border-bottom: none; }
+
+.stat-icon {
+  width: 4rem; height: 4rem; border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;
+}
+.stat-icon.amber { background: var(--amber-100); color: var(--amber-600); }
+.stat-icon.sky { background: var(--sky-100); color: var(--sky-600); }
+.stat-icon.lime { background: #ecfccb; color: var(--lime-800); }
+.stat-icon.glass { background: rgba(255,255,255,0.2); color: white; }
+
+.stat-card h3 { font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem; color: var(--stone-800); }
+.stat-card.dark h3 { color: white; }
+.stat-card p { color: var(--stone-600); font-weight: 500; font-size: 1rem; }
+.stat-card.dark p { color: #ecfccb; }
+
+.campaign-footer {
+  background: var(--stone-800); color: var(--stone-500); padding: 4rem 0; border-top: 1px solid #444; text-align: center;
 }
